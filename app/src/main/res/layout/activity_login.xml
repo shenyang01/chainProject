@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:background="@color/colorPrimary"
+                  android:layout_height="match_parent">
+        <ImageView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:id="@+id/login_image"
+                android:layout_marginTop="@dimen/dp_50"
+                android:layout_gravity="center"
+                android:src="@mipmap/login"
+                android:contentDescription="@string/app_name"/>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_50">
+            <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/white"
+                    android:hint="@string/app_name_hint"
+                    android:textColorHint="@color/white"
+                    android:id="@+id/login_name"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_50">
+            <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:hint="@string/app_password_hint"
+                    android:inputType="numberPassword"
+                    android:id="@+id/login_password"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                android:textColor="@color/bg_title_bar"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                android:id="@+id/login_button"
+                android:layout_margin="@dimen/dp_50"
+                android:background="@drawable/login_button"
+                android:text="@string/login_button"
+                android:layout_marginTop="@dimen/dp_60"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_margin="@dimen/dp_50"
+        android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="@dimen/dp_30"
+            android:text="@string/registration"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/white" android:gravity="center_vertical"
+            android:id="@+id/login_registration"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="@dimen/dp_30"
+                      android:text="@string/forget"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/white"
+                      android:gravity="center_vertical"
+                      android:layout_alignParentEnd="true"
+                      android:id="@+id/login_forget"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

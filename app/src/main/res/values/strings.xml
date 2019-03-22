@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">chainProject</string>
+    <string name="exit">退出</string>
+    <string name="black">返回</string>
+
+    <string name="empty">暂无数据</string>
+    <string name="home">首页</string>
+    <string name="product">信息</string>
+    <string name="coordinate">业务</string>
+    <string name="me">我</string>
+    <string name="foot">正在加载更多…</string>
+    <string name="test">测试数据，可点击</string>
+    <string name="app_name_hint">手机号/用户名</string>
+    <string name="app_password_hint">密码</string>
+    <string name="login_button">登 录</string>
+    <string name="registration">立即注册</string>
+    <string name="forget">忘记密码</string>
+    <string name="login_tips" type="id">用户名或密码不能为空</string>
+    <string name="test_value">测试值</string>
+    <string name="edition">当前版本</string>
+    <string name="help_feedback">帮助与反馈</string>
+    <string name="software_d">软件下载</string>
+    <string name="exit_login">退出登录</string>
+    <string name="down_tip">扫码下载</string>
+    <string name="down_tips">打开手机扫一扫，扫描此二维码，即可下载</string>
+    <string name="cd_weekly_sales">本周销售</string>
+    <string name="cd_shop_sales">本店销售</string>
+
+    <string name="retail">零售</string>
+    <string name="wholesale">批发</string>
+    <string name="receiving">收货</string>
+    <string name="return_goods">退货</string>
+    <string name="transfer">调货</string>
+    <string name="query">查询</string>
+    <string name="bar_code">条码</string>
+    <string name="account">账户</string>
+    <string name="vip">VIP</string>
+    <string name="report_form">报表</string>
+    <string name="service">功能服务</string>
+
+
+</resources>

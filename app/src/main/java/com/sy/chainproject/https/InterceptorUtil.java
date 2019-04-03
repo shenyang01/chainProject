@@ -14,5 +14,4 @@ public class InterceptorUtil {
     public static HttpLoggingInterceptor LogInterceptor() {
         return new HttpLoggingInterceptor(message -> Log.e("tag", "tag: " + message)).setLevel(HttpLoggingInterceptor.Level.BODY);//设置打印数据的级别
     }
-
 }

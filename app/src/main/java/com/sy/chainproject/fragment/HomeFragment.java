@@ -25,7 +25,6 @@ import java.util.List;
  */
 public class HomeFragment extends BaseFragment implements ViewPager.OnPageChangeListener, BaseHandler.OnReceiveMessageListener, BaseViewHolder.ViewOnclick, RefreshRecyclerView.OnPullRefresh {
     private FragmentHomeBinding binding;
-    private BPagerAdapter adapter;
     private List<View> dotlist;
     private long currentTime = 0;
     private int currentItem = 0;
@@ -40,13 +39,12 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
     @Override
     public void initView(ViewDataBinding bindings) {
         binding = (FragmentHomeBinding) bindings;
-        adapter = new BPagerAdapter(getActivity());
+        BPagerAdapter adapter = new BPagerAdapter(getActivity());
         binding.homeViewPager.setAdapter(adapter);
         binding.homeViewPager.addOnPageChangeListener(this);
         dotlist = new ArrayList<>();
         list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-
             list.add(i + "测试数据，可以点击..");
             // 添加点
             View view = new View(getActivity());
@@ -92,7 +90,6 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
     @Override
     public void onPageSelected(int position) {
         // 当前选择的页面
-        Log.e("tag", "onPageSelected  " + position);
         currentItem = position;
         // 设置小圆点背景
         for (int i = 0; i < dotlist.size(); i++) {

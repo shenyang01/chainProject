@@ -8,6 +8,7 @@ import android.view.View;
 import com.sy.chainproject.R;
 import com.sy.chainproject.base.BaseActivity;
 import com.sy.chainproject.databinding.ActivityLoginBinding;
+import com.sy.chainproject.utils.SharedPreferencesUtils;
 
 /**
  * @ data  2019/3/21 15:15
@@ -15,7 +16,8 @@ import com.sy.chainproject.databinding.ActivityLoginBinding;
  */
 public class LoginActivity extends BaseActivity {
     private ActivityLoginBinding binding;
-    private String name,pws;
+    private String name, pws;
+
     @Override
     public View getContent() {
         return LayoutInflater.from(this).inflate(R.layout.activity_login, null);
@@ -24,28 +26,38 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void initView(ViewDataBinding bindings) {
         binding = (ActivityLoginBinding) bindings;
-        setColor(this, getResources().getColor(R.color.colorPrimary));
-        setBaseVisibility(View.GONE);
-        setBaseVisibility(R.id.base_exit);
-        binding.loginButton.setOnClickListener(this);
-        binding.loginForget.setOnClickListener(this);
-        binding.loginRegistration.setOnClickListener(this);
+        setColor(getResources().getColor(R.color.white));
+        setBaseVisibility(R.id.base_rl);
+        if (SharedPreferencesUtils.getBoolean("isLogin")) {
+
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        } else {
+            setColor(getResources().getColor(R.color.colorPrimary));
+            setBaseVisibility(View.GONE);
+            setBaseVisibility(R.id.base_exit);
+            binding.loginButton.setOnClickListener(this);
+            binding.loginForget.setOnClickListener(this);
+            binding.loginRegistration.setOnClickListener(this);
+        }
     }
 
     /**
      * 登录模块
      */
-    private void login(){
+    private void login() {
         name = binding.loginName.getText().toString();
         pws = binding.loginPassword.getText().toString();
-        if(TextUtils.isEmpty(name)||TextUtils.isEmpty(pws))
-        {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(pws)) {
             showToast(getString(R.string.login_tips));
-        }else{
-            startActivity(new Intent(this,MainActivity.class));
+        } else {
+            SharedPreferencesUtils.putString("phone", name);
+            SharedPreferencesUtils.putString("pws", pws);
+            SharedPreferencesUtils.putBoolean("isLogin", true); //是否需要自动登录
+            startActivity(new Intent(this, MainActivity.class));
         }
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -54,11 +66,12 @@ public class LoginActivity extends BaseActivity {
                 login();
                 break;
             case R.id.login_forget:
-                showToast("忘记密码");
+                startActivity(new Intent(this, ForgetActivity.class));
                 break;
             case R.id.login_registration:
-                showToast("注册");
+                startActivity(new Intent(this, RegisterActivity.class));
                 break;
         }
+        finish();
     }
 }

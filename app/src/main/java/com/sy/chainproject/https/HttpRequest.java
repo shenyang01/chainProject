@@ -2,7 +2,10 @@ package com.sy.chainproject.https;
 
 import com.sy.chainproject.bean.BaseData;
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -11,10 +14,10 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class HttpRequest<T> {
     /**
-     * @param flowable 添加线程参数
+     * @param observable 添加线程参数
      */
-    public Flowable<BaseData<T>> doHttpDeal(Flowable<BaseData<T>> flowable) {
-        return flowable.subscribeOn(Schedulers.io())
+    public Observable<BaseData<T>> doHttpDeal(Observable<BaseData<T>> observable) {
+        return observable.subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

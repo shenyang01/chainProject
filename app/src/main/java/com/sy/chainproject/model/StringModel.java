@@ -5,7 +5,7 @@ import com.sy.chainproject.base.BaseCallback;
 import com.sy.chainproject.bean.BaseData;
 import com.sy.chainproject.https.BaseObserver;
 import com.sy.chainproject.https.HttpRequest;
-import io.reactivex.Flowable;
+import io.reactivex.Observable;
 
 /**
  * @ data  2018/8/24 9:20
@@ -14,8 +14,8 @@ import io.reactivex.Flowable;
  */
 public class StringModel implements BaseModelView.Model<String, String> {
     @Override
-    public void postData(Flowable<BaseData<String>> flowable, BaseCallback<String> callback) {
-        new HttpRequest<String>().doHttpDeal(flowable).subscribe(new BaseObserver<BaseData>() {
+    public void postData(Observable<BaseData<String>> observable, BaseCallback<String> callback) {
+        new HttpRequest<String>().doHttpDeal(observable).subscribe(new BaseObserver<BaseData>() {
             @Override
             public void onSucceed(BaseData baseData) {
                 if (baseData.status.equals("1"))
@@ -30,4 +30,5 @@ public class StringModel implements BaseModelView.Model<String, String> {
             }
         });
     }
+
 }

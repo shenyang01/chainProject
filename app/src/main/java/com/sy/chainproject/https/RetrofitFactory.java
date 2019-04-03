@@ -13,34 +13,26 @@ import java.util.concurrent.TimeUnit;
  * @ name sy
  */
 public class RetrofitFactory {
-    private static RetrofitFactory mRetrofitFactory;
     private static APIFunction mAPIFunction;
 
     private RetrofitFactory() {
-        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
+        OkHttpClient mOkHttpClient = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS)
                 // .addInterceptor(InterceptorUtil.HeaderInterceptor())
                 .addInterceptor(InterceptorUtil.LogInterceptor())//添加日志拦截器
                 .build();
-        Retrofit mRetrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())//添加gson转换器
+        Retrofit mRetrofit = new Retrofit.Builder().baseUrl(Constants.BASE_URL).addConverterFactory(GsonConverterFactory.create())//添加gson转换器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//添加rxjava转换器
-                .client(mOkHttpClient)
-                .build();
+                .client(mOkHttpClient).build();
         mAPIFunction = mRetrofit.create(APIFunction.class);
     }
 
+    private static class Holder {
+        private static final RetrofitFactory mRetrofitFactory = new RetrofitFactory();
+    }
+
     public static RetrofitFactory getInstance() {
-        if (mRetrofitFactory == null) {
-            synchronized (RetrofitFactory.class) {
-                if (mRetrofitFactory == null)
-                    mRetrofitFactory = new RetrofitFactory();
-            }
-        }
-        return mRetrofitFactory;
+
+        return Holder.mRetrofitFactory;
     }
 
     public APIFunction API() {

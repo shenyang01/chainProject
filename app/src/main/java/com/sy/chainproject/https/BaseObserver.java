@@ -2,7 +2,8 @@ package com.sy.chainproject.https;
 
 import android.accounts.NetworkErrorException;
 import android.util.Log;
-import org.reactivestreams.Subscriber;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import org.reactivestreams.Subscription;
 
 import java.net.ConnectException;
@@ -14,11 +15,10 @@ import java.util.concurrent.TimeoutException;
  * @ company zxcg
  * @ name sy
  */
-public abstract class BaseObserver<T> implements Subscriber<T> {
-    @Override
-    public void onSubscribe(Subscription s) {
+public abstract class BaseObserver<T> implements Observer<T> {
+
+    public void onSubscribe(Disposable s) {
         SubscriptionUtils.getInstance().addSubscription(s);
-        s.request(Long.MAX_VALUE);
     }
 
     @Override
@@ -35,10 +35,7 @@ public abstract class BaseObserver<T> implements Subscriber<T> {
     public void onError(Throwable e) {
         Log.e("tag", "e.getMessage()  " + e.getMessage());
         try {
-            if (e instanceof ConnectException
-                    || e instanceof TimeoutException
-                    || e instanceof UnknownHostException
-                    ) {
+            if (e instanceof ConnectException || e instanceof TimeoutException || e instanceof UnknownHostException) {
                 onFailure("连接超时,请检查网络状态");
             } else if (e instanceof SocketTimeoutException) { //接口错误
                 onFailure("请求异常");

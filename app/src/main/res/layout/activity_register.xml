@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/register_login"
+                  android:textColor="@color/blue"
+                  android:textSize="@dimen/sp_16"
+                  android:padding="@dimen/dp_10"
+                  android:layout_alignParentEnd="true"
+                  android:gravity="center"
+                  android:text="@string/login_button"
+                  android:layout_marginTop="@dimen/dp_20"/>
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                   android:layout_centerVertical="true"
+                   android:layout_centerHorizontal="true"
+                   android:layout_marginTop="@dimen/dp_10"
+                   android:contentDescription="@string/app_name"
+                   android:id="@+id/register_image"
+                   android:src="@mipmap/login"
+                   android:layout_below="@+id/register_login"/>
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:layout_margin="@dimen/dp_30"
+                android:layout_below="@+id/register_image">
+            <android.support.design.widget.TextInputEditText
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/black"
+                    android:hint="@string/register_phone"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_code"
+                android:layout_height="@dimen/dp_60"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/register_phone"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30">
+            <android.support.design.widget.TextInputEditText
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/black"
+                    android:hint="@string/register_code"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_pws"
+                android:layout_height="@dimen/dp_60"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/register_code"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30">
+            <android.support.design.widget.TextInputEditText
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/black"
+                    android:hint="@string/register_pws"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button
+                android:id="@+id/register_send"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:text="@string/code"
+                android:background="@null"
+                android:layout_alignEnd="@+id/register_code"
+                android:layout_alignBottom="@+id/register_code"/>
+        <Button
+                android:id="@+id/register_bt"
+                android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_below="@id/register_pws"
+                android:background="@drawable/login_button"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                android:text="@string/register"/>
+    </RelativeLayout>
+</layout>

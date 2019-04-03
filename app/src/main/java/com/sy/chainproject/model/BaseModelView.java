@@ -4,6 +4,8 @@ package com.sy.chainproject.model;
 import com.sy.chainproject.base.BaseCallback;
 import com.sy.chainproject.bean.BaseData;
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 
 /**
  * @ data  2018/10/9 17:25
@@ -21,6 +23,6 @@ public class BaseModelView {
      * @param <E> 返回值类型,ui  回调值
      */
     public interface Model<T, E> {
-        void postData(Flowable<BaseData<T>> flowable, BaseCallback<E> callback);
+        void postData(Observable<BaseData<T>> Observable, BaseCallback<E> callback);
     }
 }

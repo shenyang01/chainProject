@@ -86,8 +86,6 @@ public class SharedPreferencesUtils {
         datalist = gson.fromJson(strJson, new TypeToken<List<Integer>>() {
         }.getType());
         return datalist;
-
     }
-
 
 }

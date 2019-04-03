@@ -77,7 +77,7 @@
     <dimen name="dp_57" tools:keep="@dimen/dp_57">57dp</dimen>
     <dimen name="dp_58" tools:keep="@dimen/dp_58">58dp</dimen>
     <dimen name="dp_59" tools:keep="@dimen/dp_59">59dp</dimen>
-    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_60" tools:keep="@dimen/dp_60">60dp</dimen>
     <dimen name="dp_61" tools:keep="@dimen/dp_61">61dp</dimen>
     <dimen name="dp_62" tools:keep="@dimen/dp_62">62dp</dimen>
     <dimen name="dp_63" tools:keep="@dimen/dp_63">63dp</dimen>

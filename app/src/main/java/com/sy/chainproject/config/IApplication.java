@@ -17,15 +17,4 @@ public class IApplication extends android.app.Application {
         SharedPreferencesUtils.init(this);
 
     }
-
-    public static IApplication getInstance() {
-        return SingleTonHolder.singleTonInstance;
-    }
-
-    //静态内部类
-    private static class SingleTonHolder {
-        private static final IApplication singleTonInstance = new IApplication();
-    }
-
-
 }

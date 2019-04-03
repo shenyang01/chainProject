@@ -1,6 +1,7 @@
 package com.sy.chainproject.https;
 
 
+import io.reactivex.disposables.Disposable;
 import org.reactivestreams.Subscription;
 
 import java.util.ArrayList;
@@ -12,9 +13,9 @@ import java.util.List;
  * 取消网络请求
  */
 public class SubscriptionUtils {
-    private List<Subscription> list = new ArrayList<>();
+    private List<Disposable> list = new ArrayList<>();
 
-    public static SubscriptionUtils getInstance() {
+    static SubscriptionUtils getInstance() {
         return SingleTonHolder.singleTonInstance;
     }
 
@@ -22,7 +23,7 @@ public class SubscriptionUtils {
         private static final SubscriptionUtils singleTonInstance = new SubscriptionUtils();
     }
 
-    public void addSubscription(Subscription subscription) {
+    public void addSubscription(Disposable subscription) {
         list.add(subscription);
     }
 
@@ -30,8 +31,8 @@ public class SubscriptionUtils {
      * 取消请求
      */
     public void cancel() {
-        for (Subscription s : list) {
-            s.cancel();
+        for (Disposable s : list) {
+            s.dispose();
         }
         list.clear();
     }

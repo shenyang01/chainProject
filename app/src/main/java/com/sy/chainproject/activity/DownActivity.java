@@ -19,6 +19,6 @@ public class DownActivity extends BaseActivity {
 
     @Override
     public void initView(ViewDataBinding bindings) {
-        setColor(this,getResources().getColor(R.color.bg_title_bar));
+        setColor(getResources().getColor(R.color.bg_title_bar));
     }
 }

@@ -6,6 +6,8 @@ import com.sy.chainproject.bean.BaseData;
 import com.sy.chainproject.model.BaseModelView;
 import com.sy.chainproject.model.StringModel;
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 
 /**
  * @ data  2018/8/24 9:20
@@ -23,9 +25,9 @@ public class StringPresenter extends BasePresenter<String, String> {
     }
 
     @Override
-    public void getData(Flowable<BaseData<String>> flowable, int flags) {
+    public void getData(Observable<BaseData<String>> Observable, int flags) {
         if (view == null) return;
-        model.postData(flowable, new BaseCallback<String>() {
+        model.postData(Observable, new BaseCallback<String>() {
             @Override
             public void onSucceed(String s) {
                 view.updateData(s, flags);

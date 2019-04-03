@@ -1,28 +1,22 @@
 package com.sy.chainproject.fragment;
 
+import android.content.Intent;
 import android.databinding.ViewDataBinding;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 import com.sy.chainproject.R;
-import com.sy.chainproject.adapter.BaseAdapter;
+import com.sy.chainproject.activity.WeeklySalesActivity;
 import com.sy.chainproject.adapter.BaseViewHolder;
 import com.sy.chainproject.base.BaseFragment;
 import com.sy.chainproject.databinding.FragmentCoordinateBinding;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * @ data  2019/3/20 9:25
  * @ author  zxcg
  */
-public class CoordinateFragment extends BaseFragment implements View.OnClickListener, BaseViewHolder.ViewOnclick {
+public class CoordinateFragment extends BaseFragment implements View.OnClickListener {
     private FragmentCoordinateBinding binding;
-
+    private Intent intent;
     @Override
     public int getContent() {
         return R.layout.fragment_coordinate;
@@ -30,39 +24,52 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
 
     @Override
     public void initView(ViewDataBinding bindings) {
-
-        List<String> list = new ArrayList<>();
-        list.add(getString(R.string.retail));
-        list.add(getString(R.string.wholesale));
-        list.add(getString(R.string.receiving));
-        list.add(getString(R.string.return_goods));
-        list.add(getString(R.string.transfer));
-        list.add(getString(R.string.query));
-        list.add(getString(R.string.bar_code));
-        list.add(getString(R.string.account));
-        list.add(getString(R.string.vip));
-        list.add(getString(R.string.report_form));
-
         binding = (FragmentCoordinateBinding) bindings;
         binding.cdWeeklySales.setOnClickListener(this);
         binding.cdShopSales.setOnClickListener(this);
-        binding.coordinateRv.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        binding.coordinateRv.setAdapter(new BaseAdapter(getContext(), R.layout.coordinate_rv_item, list, false, this) {
-            @Override
-            public void convert(BaseViewHolder holder, String data, int position) {
-                holder.setText(R.id.cd_item_tv, data);
-                holder.setOnclick(R.id.cd_itemView, position);
-            }
-        });
+        binding.cdItem.setOnClickListener(this);
+        binding.cdItem2.setOnClickListener(this);
+        binding.cdItem3.setOnClickListener(this);
+        binding.cdItem4.setOnClickListener(this);
+        binding.cdItem5.setOnClickListener(this);
+        binding.cdItem6.setOnClickListener(this);
+        binding.cdItem7.setOnClickListener(this);
+        binding.cdItem8.setOnClickListener(this);
+        binding.cdItem9.setOnClickListener(this);
+        binding.cdItem10.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
-    }
-
-    @Override
-    public void clickView(View v, int position) {
-        Toast.makeText(getActivity(), position + " ", Toast.LENGTH_SHORT).show();
+        switch (v.getId()) {
+            case R.id.cd_weekly_sales:
+                intent = new Intent(getActivity(), WeeklySalesActivity.class);
+                break;
+            case R.id.cd_shop_sales:
+                break;
+            case R.id.cd_item:
+                break;
+            case R.id.cd_item2:
+                break;
+            case R.id.cd_item3:
+                break;
+            case R.id.cd_item4:
+                break;
+            case R.id.cd_item5:
+                break;
+            case R.id.cd_item6:
+                break;
+            case R.id.cd_item7:
+                break;
+            case R.id.cd_item8:
+                break;
+            case R.id.cd_item9:
+                break;
+            case R.id.cd_item10:
+                break;
+        }
+        if(intent!=null){
+            startActivity(intent);
+        }
     }
 }

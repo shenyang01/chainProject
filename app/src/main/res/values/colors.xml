@@ -13,4 +13,6 @@
     <color name="coord_gray">#43CD80</color>
     <color name="gray_w">#EDEDED</color>
     <color name="blue">#4876FF</color>
+    <color name="cap_bg">#70000000</color>
+    <color name="black2">#212121</color>
 </resources>

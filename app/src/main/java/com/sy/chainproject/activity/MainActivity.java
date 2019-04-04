@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding.mainRG.setOnCheckedChangeListener(this);
-        setBaseVisibility(R.id.base_exit);
         //不为null，说明是死而复活，移除已经存在的fragment
         if (savedInstanceState != null) {
             FragmentManager mManager = getSupportFragmentManager();
@@ -75,9 +74,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         fragment = new Fragment[]{homeFragment, productFragment, coordinateFragment, meFragment};
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.main_fragment, fragment[0], tag[0]).commit();
+        setBaseBask(getResources().getString(R.string.home));
+        setBaseVisibility(R.id.base_back);
 
         //请求权限
-        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
         EasyPermissions.requestPermissions(this, getString(R.string.exception), Constants.REQUESTCODE, permissions);
         //startInstallPermissionSettingActivity();
 }
@@ -100,20 +101,20 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (checkedId) {
             case R.id.main_home:
                 showFragment(0);
-                setBaseTitle(getResources().getString(R.string.home));
+                setBaseBask(getResources().getString(R.string.home));
                 break;
             case R.id.main_product:
                 showFragment(1);
-                setBaseTitle(getResources().getString(R.string.product));
+                setBaseBask(getResources().getString(R.string.product));
                 break;
             case R.id.main_coordinate:
                 showFragment(2);
-                setBaseTitle(getResources().getString(R.string.coordinate));
-                updateAPK();
+                setBaseBask(getResources().getString(R.string.coordinate));
+                //updateAPK();
                 break;
             case R.id.main_me:
                 showFragment(3);
-                setBaseVisibility(R.id.base_rl);
+                setBaseBask("");
                 break;
         }
     }
@@ -151,9 +152,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
+    /**
+     * 权限请求成功
+     */
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-        Log.e("tag", "onPermissionsGranted  " + requestCode + perms.toString());
+
     }
 
     @Override

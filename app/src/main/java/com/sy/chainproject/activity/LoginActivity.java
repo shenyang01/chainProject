@@ -29,10 +29,9 @@ public class LoginActivity extends BaseActivity {
         setColor(getResources().getColor(R.color.white));
         setBaseVisibility(R.id.base_rl);
         if (SharedPreferencesUtils.getBoolean("isLogin")) {
-
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
         } else {
-            setColor(getResources().getColor(R.color.colorPrimary));
+            setColor(getResources().getColor(R.color.white));
             setBaseVisibility(View.GONE);
             setBaseVisibility(R.id.base_exit);
             binding.loginButton.setOnClickListener(this);

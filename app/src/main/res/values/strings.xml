@@ -41,7 +41,7 @@
     <string name="update">更新apk</string>
     <string name="ok">确定</string>
     <string name="canle">取消</string>
-    <string name="exception">避免程序无法使用，请点击同意</string>
+    <string name="exception">避免程序无法使用，请点击允许</string>
     <string name="camera">相机</string>
     <string name="album">相册</string>
     <string name="register_phone">手机号</string>
@@ -50,6 +50,15 @@
     <string name="register_pws">密码(6–20位数字或字母组合)</string>
     <string name="register">注册</string>
     <string name="confirm">确定修改</string>
+    <string name="cap_info">请将条码置于摄像头前</string>
+    <string name="bar_scan">识别条码</string>
+    <string name="bar_qr">生成二维码</string>
+    <string name="bar_one">生成条形码</string>
+    <string name="bar_tool">条码工具</string>
+    <string name="scan">扫一扫</string>
+    <string name="qr">二维码</string>
+    <string name="one">条形码</string>
+    <string name="card_code">条码</string>
 
 
 </resources>

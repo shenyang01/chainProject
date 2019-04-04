@@ -30,6 +30,7 @@ public class ForgetActivity extends BaseActivity {
         setBaseVisibility(R.id.base_rl);
         binding.forgetSend.setOnClickListener(this);
         binding.forgetBt.setOnClickListener(this);
+        binding.forgetLogin.setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +40,9 @@ public class ForgetActivity extends BaseActivity {
                 forget();
                 break;
             case R.id.forget_send:
+                break;
+            case R.id.forget_login:
+                startActivity(new Intent(ForgetActivity.this,LoginActivity.class));
                 break;
         }
         finish();

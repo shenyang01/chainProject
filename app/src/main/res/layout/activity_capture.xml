@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+            android:id="@+id/capture_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+        <SurfaceView
+                android:id="@+id/capture_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cap_bg"
+                android:layout_gravity="center"/>
+
+        <RelativeLayout
+                android:id="@+id/capture_crop_view"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_150"
+                android:background="@mipmap/camera" android:layout_centerInParent="true" android:contentDescription="@string/app_name">
+
+            <ImageView
+                    android:id="@+id/capture_scan_line"
+                    android:layout_width="@dimen/dp_150"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/camera1" android:contentDescription="@string/app_name"/>
+        </RelativeLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cap_info"
+                android:textColor="@color/white"
+                android:layout_below="@+id/capture_crop_view"
+                android:textSize="@dimen/sp_20"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:padding="@dimen/dp_3"
+                android:layout_marginTop="@dimen/dp_30"
+                android:background="@drawable/text_frame"/>
+    </RelativeLayout>
+
+</layout>

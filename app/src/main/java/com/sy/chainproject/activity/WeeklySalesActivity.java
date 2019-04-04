@@ -40,6 +40,7 @@ public class WeeklySalesActivity extends BaseActivity {
     public void initView(ViewDataBinding bindings) {
         binding = (ActivityWeeklySalesBinding) bindings;
         setColor(getResources().getColor(R.color.bg_title_bar));
+        setBaseBask(getResources().getString(R.string.black));
         binding.wsBarChart.setBorderWidth(getResources().getDimension(R.dimen.dp_20));
         binding.wsBarChart.getAxis(YAxis.AxisDependency.RIGHT).setEnabled(false);
         binding.wsBarChart.getDescription().setEnabled(false); //描述文字
@@ -56,7 +57,7 @@ public class WeeklySalesActivity extends BaseActivity {
 
             }
         });
-        binding.wsBarChart.animateX(1000);
+        binding.wsBarChart.animateX(500);
 
         //binding.wsBarChart.setMarker(new BMarkerView(this,R.layout.barchar_marker));
 

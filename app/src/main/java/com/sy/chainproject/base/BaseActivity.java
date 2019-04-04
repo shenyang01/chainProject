@@ -1,18 +1,13 @@
 package com.sy.chainproject.base;
 
-import android.app.Activity;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout.LayoutParams;
@@ -28,7 +23,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        // setColor(this,getResources().getColor(R.color.bg_title_bar));
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_base);
         init();
@@ -42,7 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.base_exit) finish();
+        if (v.getId() == R.id.base_exit||v.getId() == R.id.base_back) finish();
     }
 
     /**
@@ -50,6 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     private void init() {
         binding.baseExit.setOnClickListener(this);
+        binding.baseBack.setOnClickListener(this);
         // 添加内容文件
         View view = getContent();
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -88,7 +83,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             //5.0及以上，不设置透明状态栏，设置会有半透明阴影
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-           getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().setStatusBarColor(color);
             binding.baseRl.setBackgroundColor(color);
         }
@@ -105,6 +100,9 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             case R.id.base_name:
                 binding.baseName.setVisibility(View.GONE);
                 break;
+            case R.id.base_back:
+                binding.baseBack.setVisibility(View.GONE);
+                break;
             case R.id.base_rl:
                 binding.baseRl.setVisibility(View.GONE);
                 break;
@@ -115,7 +113,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * 设置tile
      */
     public void setBaseTitle(String title) {
-        binding.baseExit.setText(title);
+        binding.baseName.setText(title);
+    }
+
+    /**
+     * 设置返回字体
+     */
+    public void setBaseBask(String back) {
+        binding.baseExit.setText(back);
     }
 
     /**

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/dp_30"
+                  android:layout_marginStart="@dimen/dp_15"
+                  android:text="@string/card_code"
+                  android:textColor="@color/black"
+                  android:textSize="@dimen/sp_16"/>
+        <RelativeLayout
+                android:id="@+id/bar_scan"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:layout_width="match_parent" android:layout_height="@dimen/dp_100"
+                android:background="@drawable/card_background">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/bar_scan"
+                      android:drawablePadding="@dimen/dp_3"
+                      android:layout_marginStart="@dimen/dp_15"
+                      android:gravity="center"
+                      android:layout_marginTop="@dimen/dp_15"
+                      android:drawableStart="@mipmap/bar_scan"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textColor="@color/black2"
+                      android:textSize="@dimen/sp_12"
+                      android:layout_alignParentBottom="true"
+                      android:layout_alignParentEnd="true"
+                      android:layout_marginEnd="@dimen/dp_15"
+                      android:layout_marginBottom="@dimen/dp_15"
+                      android:text="@string/bar_scan"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/bar_one"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:layout_width="match_parent" android:layout_height="@dimen/dp_100"
+                android:background="@drawable/card_background">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/one"
+                      android:drawablePadding="@dimen/dp_3"
+                      android:layout_marginStart="@dimen/dp_15"
+                      android:gravity="center"
+                      android:layout_marginTop="@dimen/dp_15"
+                      android:drawableStart="@mipmap/bar_one"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textColor="@color/black2"
+                      android:textSize="@dimen/sp_12"
+                      android:layout_alignParentBottom="true"
+                      android:layout_alignParentEnd="true"
+                      android:layout_marginEnd="@dimen/dp_15"
+                      android:layout_marginBottom="@dimen/dp_15"
+                      android:text="@string/bar_one"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/bar_qr"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:layout_width="match_parent" android:layout_height="@dimen/dp_100"
+                android:background="@drawable/card_background">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/qr"
+                      android:drawablePadding="@dimen/dp_3"
+                      android:layout_marginStart="@dimen/dp_15"
+                      android:gravity="center"
+                      android:layout_marginTop="@dimen/dp_15"
+                      android:drawableStart="@mipmap/bar_qr"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textColor="@color/black2"
+                      android:textSize="@dimen/sp_12"
+                      android:layout_alignParentBottom="true"
+                      android:layout_alignParentEnd="true"
+                      android:layout_marginEnd="@dimen/dp_15"
+                      android:layout_marginBottom="@dimen/dp_15"
+                      android:text="@string/bar_qr"/>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

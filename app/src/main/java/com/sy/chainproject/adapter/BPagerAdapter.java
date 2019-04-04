@@ -21,11 +21,11 @@ public class BPagerAdapter extends PagerAdapter {
     public BPagerAdapter(Context context) {
         this.context = context;
         list = new ArrayList<>();
-        list.add(R.mipmap.home);
-        list.add(R.mipmap.product);
-        list.add(R.mipmap.coordinate);
-        list.add(R.mipmap.me);
-        list.add(R.mipmap.home);
+        list.add(R.mipmap.ssm);
+        list.add(R.mipmap.ssm);
+        list.add(R.mipmap.ssm);
+        list.add(R.mipmap.ssm);
+        list.add(R.mipmap.ssm);
     }
 
     @Override
@@ -47,6 +47,7 @@ public class BPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setImageResource(list.get(position%list.size()));
         container.addView(imageView);
         return imageView;

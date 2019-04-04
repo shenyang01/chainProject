@@ -20,9 +20,9 @@
                   android:label="@string/app_name"
                   android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -32,25 +32,25 @@
                   android:launchMode="singleTask"/>
 
         <activity android:name=".activity.ForgetActivity"/>
+        <activity android:name=".activity.DownActivity"/>
+        <activity android:name=".activity.WeeklySalesActivity"/>
+        <activity android:name=".activity.CaptureActivity"/>
+        <activity android:name=".activity.BarCodeActivity"/>
 
 
-    <activity android:name=".activity.DownActivity"/>
-    <activity android:name=".activity.WeeklySalesActivity"/>
+        <service android:name=".download.DownLoadServer"/>
 
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.sy.chainproject.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <!-- 元数据 -->
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths"/>
+        </provider>
 
-    <service android:name=".download.DownLoadServer"/>
+    </application>
 
-    <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.sy.chainproject.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-        <!-- 元数据 -->
-        <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
-    </provider>
-
-</application>
-
-        </manifest>
+</manifest>

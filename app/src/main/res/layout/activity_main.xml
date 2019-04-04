@@ -15,19 +15,20 @@
 
         </FrameLayout>
 
+
         <RadioGroup
                 android:id="@+id/main_RG"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:background="@color/milky_white"
-                android:layout_height="@dimen/dp_60">
+                android:background="@color/line_gray"
+                android:layout_height="@dimen/dp_50">
 
             <RadioButton android:layout_width="0dp"
                          android:layout_height="match_parent"
                          android:textSize="@dimen/sp_12"
                          android:textColor="@drawable/home_color"
-                         android:padding="@dimen/dp_2"
+                         android:padding="@dimen/dp_5"
                          android:drawableTop="@drawable/home_background"
                          android:gravity="center"
                          android:button="@null"
@@ -41,10 +42,10 @@
                          android:id="@+id/main_product"
                          android:textSize="@dimen/sp_12"
                          android:textColor="@drawable/home_color"
-                         android:padding="@dimen/dp_2"
+                         android:padding="@dimen/dp_5"
                          android:drawableTop="@drawable/product_background"
-                         android:gravity="center"
                          android:button="@null"
+                         android:gravity="center_horizontal"
                          android:text="@string/product"
                          android:layout_weight="1"/>
 
@@ -53,7 +54,7 @@
                          android:id="@+id/main_coordinate"
                          android:textSize="@dimen/sp_12"
                          android:textColor="@drawable/home_color"
-                         android:padding="@dimen/dp_2"
+                         android:padding="@dimen/dp_5"
                          android:drawableTop="@drawable/coordinate_background"
                          android:gravity="center"
                          android:button="@null"
@@ -64,12 +65,16 @@
                          android:id="@+id/main_me"
                          android:textSize="@dimen/sp_12"
                          android:textColor="@drawable/home_color"
-                         android:padding="@dimen/dp_2"
+                         android:padding="@dimen/dp_5"
                          android:drawableTop="@drawable/me_background"
                          android:gravity="center"
                          android:button="@null"
                          android:text="@string/me"
                          android:layout_weight="1"/>
         </RadioGroup>
+        <View
+                android:layout_width="match_parent" android:layout_height="1px"
+                android:background="@color/bg_checkable"
+                android:layout_below="@+id/main_fragment"/>
     </RelativeLayout>
 </layout>

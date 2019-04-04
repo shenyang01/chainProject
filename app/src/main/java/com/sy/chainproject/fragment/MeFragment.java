@@ -1,5 +1,6 @@
 package com.sy.chainproject.fragment;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.databinding.ViewDataBinding;
@@ -7,20 +8,25 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.sy.chainproject.R;
 import com.sy.chainproject.activity.DownActivity;
 import com.sy.chainproject.activity.LoginActivity;
 import com.sy.chainproject.base.BaseFragment;
 import com.sy.chainproject.camera.GetPhotoFromPhotoAlbum;
+import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.FragmentMeBinding;
 import com.sy.chainproject.utils.SharedPreferencesUtils;
 import com.sy.chainproject.view.CameraPopupWindow;
+import pub.devrel.easypermissions.EasyPermissions;
 
 import java.io.File;
+import java.util.List;
 import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
@@ -29,7 +35,7 @@ import static android.app.Activity.RESULT_OK;
  * @ data  2019/3/20 9:25
  * @ author  zxcg
  */
-public class MeFragment extends BaseFragment implements View.OnClickListener {
+public class MeFragment extends BaseFragment implements View.OnClickListener,EasyPermissions.PermissionCallbacks  {
     private FragmentMeBinding binding;
     private CameraPopupWindow popupWindow;
     private File cameraSavePath;
@@ -39,10 +45,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     public int getContent() {
         return R.layout.fragment_me;
     }
-
     @Override
     public void initView(ViewDataBinding bindings) {
-
         binding = (FragmentMeBinding) bindings;
         binding.meGo.setOnClickListener(this);
         binding.meDown.setOnClickListener(this);
@@ -72,11 +76,14 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.me_exit_login:
                 SharedPreferencesUtils.putBoolean("isLogin", false); //是否需要自动登录
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
                 break;
             case R.id.me_help:
                 break;
             case R.id.me_go:
-                showPopupWindow();
+                //请求权限
+                String[] permissions = new String[]{Manifest.permission.CAMERA};
+                EasyPermissions.requestPermissions(this, getString(R.string.exception), Constants.REQUESTCODE, permissions);
                 break;
             case R.id.popup_camera:
                 goCamera();
@@ -97,7 +104,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
     //激活相机操作
     private void goCamera() {
-
         cameraSavePath = new File(Environment.getExternalStorageDirectory().getPath() + "/" + System.currentTimeMillis() + ".jpg");
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -138,6 +144,28 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         }
         if (!popupWindow.isShowing()) popupWindow.showPopupWindow(binding.meView);
 
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    /**
+     * 权限请求成功
+     */
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        showPopupWindow();
+        Log.e("tag", "权限请求成功  " + requestCode + perms.toString());
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Toast.makeText(getActivity(),"未允许权限，请前往设置打开",Toast.LENGTH_SHORT).show();
+        Log.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
     }
 
     /**

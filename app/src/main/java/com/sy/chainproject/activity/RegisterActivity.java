@@ -42,6 +42,7 @@ public class RegisterActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.register_login:
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
                 break;
             case R.id.register_send:
                 break;
@@ -49,7 +50,7 @@ public class RegisterActivity extends BaseActivity {
                 register();
                 break;
         }
-        finish();
+
     }
 
     /**
@@ -79,6 +80,7 @@ public class RegisterActivity extends BaseActivity {
         SharedPreferencesUtils.putBoolean("isLogin", true); //是否需要自动登录*/
 
         startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+        finish();
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.sy.chainproject.base.BaseFragment;
 /**
  * @ data  2019/3/20 9:25
  * @ author  zxcg
+ * 信息
  */
 public class ProductFragment extends BaseFragment {
 

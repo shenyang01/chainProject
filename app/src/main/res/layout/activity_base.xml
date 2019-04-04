@@ -9,23 +9,28 @@
         <RelativeLayout
                 android:id="@+id/base_rl"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_50">
+                android:layout_height="@dimen/dp_45">
+            <ImageView android:layout_width="@dimen/dp_30" android:layout_height="@dimen/dp_30"
+                       android:id="@+id/base_back"
+                       android:contentDescription="@string/black"
+                       android:src="@mipmap/back"
+                       android:paddingStart="@dimen/dp_3"
+                       android:layout_centerVertical="true"/>
             <TextView
+                    android:layout_toEndOf="@+id/base_back"
                     android:id="@+id/base_exit"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dp_3"
+                    android:layout_height="@dimen/dp_30"
                     android:gravity="center"
-                    android:text="@string/black"
-                    android:padding="@dimen/dp_5"
                     android:layout_centerVertical="true"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/sp_14"/>
+                    android:textSize="@dimen/sp_16"/>
             <TextView
                     android:id="@+id/base_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/app_name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_16"
                     android:layout_centerInParent="true"/>

@@ -3,16 +3,16 @@ package com.sy.chainproject.fragment;
 import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.view.View;
-import android.widget.Toast;
 import com.sy.chainproject.R;
+import com.sy.chainproject.activity.BarCodeActivity;
 import com.sy.chainproject.activity.WeeklySalesActivity;
-import com.sy.chainproject.adapter.BaseViewHolder;
 import com.sy.chainproject.base.BaseFragment;
 import com.sy.chainproject.databinding.FragmentCoordinateBinding;
 
 /**
  * @ data  2019/3/20 9:25
  * @ author  zxcg
+ * 业务
  */
 public class CoordinateFragment extends BaseFragment implements View.OnClickListener {
     private FragmentCoordinateBinding binding;
@@ -46,26 +46,37 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
                 intent = new Intent(getActivity(), WeeklySalesActivity.class);
                 break;
             case R.id.cd_shop_sales:
+                intent = new Intent(getActivity(), WeeklySalesActivity.class);
                 break;
             case R.id.cd_item:
+                intent =null;
                 break;
             case R.id.cd_item2:
+                intent =null;
                 break;
             case R.id.cd_item3:
+                intent =null;
                 break;
             case R.id.cd_item4:
+                intent =null;
                 break;
             case R.id.cd_item5:
+                intent =null;
                 break;
             case R.id.cd_item6:
+                intent =null;
                 break;
             case R.id.cd_item7:
+                intent =new Intent(getActivity(), BarCodeActivity.class);
                 break;
             case R.id.cd_item8:
+                intent =null;
                 break;
             case R.id.cd_item9:
+                intent =null;
                 break;
             case R.id.cd_item10:
+                intent =null;
                 break;
         }
         if(intent!=null){

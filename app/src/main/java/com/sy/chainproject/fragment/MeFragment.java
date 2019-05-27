@@ -16,8 +16,10 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.sy.chainproject.R;
 import com.sy.chainproject.activity.DownActivity;
+import com.sy.chainproject.activity.HelpActivity;
 import com.sy.chainproject.activity.LoginActivity;
 import com.sy.chainproject.base.BaseFragment;
+import com.sy.chainproject.bean.UserBean;
 import com.sy.chainproject.camera.GetPhotoFromPhotoAlbum;
 import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.FragmentMeBinding;
@@ -59,6 +61,12 @@ public class MeFragment extends BaseFragment implements View.OnClickListener,Eas
                 PackageInfo info = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
                 binding.meVersion.setText(info.versionName);
             }
+           UserBean userData= SharedPreferencesUtils.getUserdata(Constants.USERDATA);
+            if(userData !=null){
+                binding.meName.setText(userData.getUsername());
+                binding.mePhone.setText(userData.getPhone());
+                Glide.with(this).load("https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1558339950&di=ec7ea1a3602fda91e07910d1ba3a5682&src=http://pic36.nipic.com/20131110/14741728_170149392100_2.jpg").into(binding.meImage);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,6 +87,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener,Eas
                 getActivity().finish();
                 break;
             case R.id.me_help:
+                startActivity(new Intent(getActivity(), HelpActivity.class));
                 break;
             case R.id.me_go:
                 //请求权限

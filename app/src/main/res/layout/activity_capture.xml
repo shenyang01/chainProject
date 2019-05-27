@@ -4,8 +4,7 @@
     <RelativeLayout
             android:id="@+id/capture_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_height="match_parent">
 
         <SurfaceView
                 android:id="@+id/capture_preview"
@@ -36,7 +35,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:padding="@dimen/dp_3"
-                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_50"
                 android:background="@drawable/text_frame"/>
     </RelativeLayout>
 

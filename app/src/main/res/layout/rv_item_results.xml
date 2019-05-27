@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dp_5"
+              android:layout_marginEnd="@dimen/dp_5"
+              android:background="@color/white"
+              android:orientation="horizontal">
+
+    <ImageView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:id="@+id/item_results_image"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
+                  android:id="@+id/item_results_store"
+                  android:gravity="bottom"
+                  android:layout_marginStart="@dimen/dp_5"
+                  android:layout_marginEnd="@dimen/dp_5"
+                  android:textSize="@dimen/sp_14"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
+                      android:orientation="horizontal"
+                      android:paddingStart="@dimen/dp_5"
+
+                      android:paddingEnd="@dimen/dp_5">
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/query_title"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:id="@+id/item_results_title"
+                      android:gravity="center_vertical"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/results_color"/>
+            <TextView android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:id="@+id/item_results_color"
+                      android:gravity="center_vertical"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
+                      android:orientation="horizontal"
+                      android:paddingStart="@dimen/dp_5"
+                      android:paddingEnd="@dimen/dp_5">
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/results_size"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:id="@+id/item_results_size"
+                      android:gravity="center_vertical"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/query_stock"/>
+            <TextView android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:id="@+id/item_results_stock"
+                      android:gravity="center_vertical"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

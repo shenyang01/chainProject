@@ -27,8 +27,8 @@ public class BarCodeActivity extends BaseActivity {
     public void initView(ViewDataBinding bindings) {
         binding = (ActivityBarCodeBinding) bindings;
         setColor(getResources().getColor(R.color.bg_title_bar));
-        setBaseBask(getString(R.string.bar_tool));
-
+        setBaseBask(getString(R.string.black));
+        setBaseTitle(getString(R.string.bar_tool));
         binding.barOne.setOnClickListener(this);
         binding.barQr.setOnClickListener(this);
         binding.barScan.setOnClickListener(this);
@@ -40,14 +40,19 @@ public class BarCodeActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.bar_scan:
                 intent = new Intent(BarCodeActivity.this, CaptureActivity.class);
+                startActivity(intent);
+                // intent = new Intent(BarCodeActivity.this, CodeResultsActivity.class);
                 break;
             case R.id.bar_qr:
+                intent = new Intent(BarCodeActivity.this, GenerateCodeActivity.class);
+                intent.putExtra("code", 1);
+                startActivity(intent);
                 break;
             case R.id.bar_one:
+                intent = new Intent(BarCodeActivity.this, GenerateCodeActivity.class);
+                intent.putExtra("code", 0);
+                startActivity(intent);
                 break;
-        }
-        if (intent != null) {
-            startActivity(intent);
         }
     }
 }

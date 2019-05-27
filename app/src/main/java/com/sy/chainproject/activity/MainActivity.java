@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,9 +17,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RadioGroup;
-import androidx.annotation.RequiresApi;
-import com.sy.chainproject.base.BaseActivity;
 import com.sy.chainproject.R;
+import com.sy.chainproject.base.BaseActivity;
 import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.ActivityMainBinding;
 import com.sy.chainproject.download.DownLoadServer;
@@ -26,8 +26,8 @@ import com.sy.chainproject.fragment.CoordinateFragment;
 import com.sy.chainproject.fragment.HomeFragment;
 import com.sy.chainproject.fragment.MeFragment;
 import com.sy.chainproject.fragment.ProductFragment;
+import com.sy.chainproject.utils.SharedPreferencesUtils;
 import pub.devrel.easypermissions.EasyPermissions;
-
 
 import java.util.List;
 
@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private String tag[];
     private MeFragment meFragment;
     private long currentTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             transaction.remove(mManager.findFragmentByTag(Constants.COORDINATEFRAGMENT));
             transaction.remove(mManager.findFragmentByTag(Constants.MEFRAGMENT));
             transaction.commit();
+        }
+        if (!SharedPreferencesUtils.getBoolean(Constants.ISLOGIN)) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
 
@@ -80,8 +84,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         //请求权限
         String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
         EasyPermissions.requestPermissions(this, getString(R.string.exception), Constants.REQUESTCODE, permissions);
-        //startInstallPermissionSettingActivity();
-}
+    }
 
     private void showFragment(int index) {
         transaction = getSupportFragmentManager().beginTransaction();
@@ -123,10 +126,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
      * 下载apk
      */
     private void updateAPK() {
+        //startInstallPermissionSettingActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.update));
         builder.setMessage("gagaggaga\nfgdgsgsg\nfdsga");
-        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> startService(new Intent(MainActivity.this, DownLoadServer.class))).setNegativeButton(getString(R.string.canle), (dialog, which) -> {
+        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> startService(new Intent(MainActivity.this, DownLoadServer.class))).setNegativeButton(getString(R.string.cancel), (dialog, which) -> {
 
         }).show();
     }
@@ -138,11 +142,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     public void onBackPressed() {
-        meFragment. dismiss();
-        if(System.currentTimeMillis()-currentTime<1000){
+        meFragment.dismiss();
+        if (System.currentTimeMillis() - currentTime < 1000) {
             finish();
         }
-        currentTime=System.currentTimeMillis();
+        currentTime = System.currentTimeMillis();
         //super.onBackPressed();
     }
 

@@ -14,12 +14,13 @@
         private SparseArray<View> views;
         private ViewOnclick viewOnclick;
         private ViewLongOnclick longClickView;
-
+        private View itemView;
         /**
          * @param itemView 无点击事件
          */
         BaseViewHolder(View itemView) {
             super(itemView);
+            this.itemView=itemView;
             views = new SparseArray<>();
         }
 
@@ -29,6 +30,7 @@
         BaseViewHolder(View itemView, ViewOnclick viewOnclick) {
             super(itemView);
             this.viewOnclick = viewOnclick;
+            this.itemView=itemView;
             views = new SparseArray<>();
         }
 
@@ -45,7 +47,7 @@
         /**
          * 绑定id
          */
-        private <T extends View> T getView(int viewId) {
+        public  <T extends View> T getView(int viewId) {
             View view = views.get(viewId);
             if (view == null) {
                 view = itemView.findViewById(viewId);
@@ -76,6 +78,10 @@
             view.setTag(position);
         }
 
+        public void setItemViewOnClick(int position){
+            itemView.setOnClickListener(this);
+            itemView.setTag(position);
+        }
 
         @Override
         public void onClick(View v) {

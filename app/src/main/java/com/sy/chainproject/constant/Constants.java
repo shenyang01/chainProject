@@ -8,7 +8,11 @@ package com.sy.chainproject.constant;
 public class Constants {
 
     public static final String SPNAME = "sp";
-    public static final String BASE_URL = "http://pite-bmcp.com:8011";
+    public static final String IMEI = "IMEI";
+    public static final String ISLOGIN = "isLogin"; //是否已保存用户名密码
+    public static final String USERDATA = "userData"; //用户登录返回信息
+    public static final String DATA = "data"; //接口请求键值
+    public static final String BASE_URL = "http://47.107.98.9:5000";
     public static final String  HOMEFRAGMENT= "HomeFragment";
     public static final String PRODUCTFRAGMENT = "ProductFragment";
     public static final String COORDINATEFRAGMENT = "CoordinateFragment";

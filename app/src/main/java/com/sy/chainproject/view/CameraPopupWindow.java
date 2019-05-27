@@ -1,15 +1,11 @@
 package com.sy.chainproject.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 import com.sy.chainproject.R;
 
 /**

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <ImageView android:layout_width="@dimen/dp_25" android:layout_height="@dimen/dp_25"
+                   android:src="@mipmap/back_b"
+                   android:id="@+id/query_back"
+                   android:layout_marginTop="15dp"
+                   android:layout_marginStart="@dimen/dp_10"
+                   android:layout_marginEnd="@dimen/dp_10"
+                   android:contentDescription="@string/app_name"
+                   android:layout_alignParentStart="true"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_35"
+                        android:layout_toEndOf="@+id/query_back"
+                        android:id="@+id/query_rl"
+                        android:layout_toStartOf="@+id/query_bt"
+                        android:layout_margin="@dimen/dp_10"
+                        android:background="@color/gray2">
+            <ImageView android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/search"
+                       android:id="@+id/query_image"
+                       android:layout_marginEnd="@dimen/dp_10"
+                       android:contentDescription="@string/app_name"
+                       android:layout_marginStart="@dimen/dp_10"
+                       android:layout_centerVertical="true"/>
+
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/query_query"
+                      android:layout_toEndOf="@+id/query_image"
+                      android:layout_toStartOf="@+id/query_cancel"
+                      android:maxLength="16"
+                      android:hint="@string/query_hint"
+                      android:background="@null"
+                      android:textColor="@color/black"
+                      android:textSize="@dimen/sp_14"/>
+
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:src="@mipmap/err"
+                       android:id="@+id/query_cancel"
+                       android:layout_marginEnd="@dimen/dp_10"
+                       android:layout_marginStart="@dimen/dp_10"
+                       android:contentDescription="@string/app_name"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+        <TextView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_35"
+                  android:layout_alignParentEnd="true"
+                  android:gravity="center"
+                  android:textColor="@color/bg_title_bar"
+                  android:textSize="@dimen/sp_16"
+                  android:layout_marginTop="@dimen/dp_10"
+                  android:layout_marginEnd="@dimen/dp_10"
+                  android:text="@string/query"
+                  android:id="@+id/query_bt"/>
+        <View android:layout_width="match_parent" android:layout_height="@dimen/dp_5"
+              android:background="@color/gray_w"
+              android:id="@+id/query_view"
+              android:layout_below="@+id/query_rl"/>
+        <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                  android:layout_below="@+id/query_view"
+                  android:textSize="@dimen/sp_14"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"
+                  android:id="@+id/query_record"
+                  android:layout_marginStart="@dimen/dp_10"
+                  android:text="@string/historical_record"/>
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/query_rv"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_below="@+id/query_record"/>
+    </RelativeLayout>
+</layout>

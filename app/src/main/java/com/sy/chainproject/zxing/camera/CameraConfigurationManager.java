@@ -207,7 +207,7 @@ public final class CameraConfigurationManager {
             return largestSize;
         }
 
-        // If there is nothing at all suitable, return current preview size
+        // If there is nothing at all suitable, retreat current preview size
         Camera.Size defaultPreview = parameters.getPreviewSize();
 
         return new Point(defaultPreview.width, defaultPreview.height);

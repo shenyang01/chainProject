@@ -17,24 +17,21 @@ import java.util.List;
  * @ name sy
  */
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<String> mlist;
+    private List<T> mlist;
     private LayoutInflater miInflater;
     private int TYPE_FOOTER = 0;
     private int TYPE_ITEM = 1;
-    private int DATA_EMPTY = 2;//没有数据时
     private FootHolder FootHolder = null;
     private int layout;
     private boolean isFoot;
     private BaseViewHolder.ViewOnclick viewOnclick=null;
-
-    protected BaseAdapter(Context context, int layout, List<String> mlist, boolean isFoot) {
-        this.mlist = mlist;
-        this.layout = layout;
-        this.isFoot = isFoot;
-        this.viewOnclick = (BaseViewHolder.ViewOnclick) context;
-        miInflater = LayoutInflater.from(context);
+    protected BaseAdapter(Context context, int layout, List<T> mlist) {
+        this(context,layout,mlist,null);
     }
-    protected BaseAdapter(Context context, int layout, List<String> mlist, boolean isFoot,BaseViewHolder.ViewOnclick viewOnclick) {
+    protected BaseAdapter(Context context, int layout, List<T> mlist,BaseViewHolder.ViewOnclick viewOnclick) {
+        this(context,layout,mlist,false,viewOnclick);
+    }
+    protected BaseAdapter(Context context, int layout, List<T> mlist, boolean isFoot,BaseViewHolder.ViewOnclick viewOnclick) {
         this.mlist = mlist;
         this.layout = layout;
         this.isFoot = isFoot;
@@ -46,12 +43,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        if (viewType == DATA_EMPTY) {
-            view = miInflater.inflate(R.layout.detaempty, parent, false);
-            return new DataEmptyHolder(view);
-        }
         if (viewType == TYPE_FOOTER) {
-            view = miInflater.inflate(R.layout.footitem, parent, false);
+            view = miInflater.inflate(R.layout.item_footitem, parent, false);
             return new FootHolder(view);
         } else {
             view = miInflater.inflate(layout, parent, false);
@@ -63,9 +56,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        if (mlist.size() == 0) {
-            return DATA_EMPTY;
-        } else if (position + 1 == getItemCount() && isFoot) {
+         if (position + 1 == getItemCount() && isFoot) {
             return TYPE_FOOTER;
         } else {
             return TYPE_ITEM;
@@ -103,7 +94,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     /**
      * 设置数据的方法
      */
-    public abstract void convert(BaseViewHolder holder, String data, int position);
+    public abstract void convert(BaseViewHolder holder, T data, int position);
 
     @Override
     public int getItemCount() {

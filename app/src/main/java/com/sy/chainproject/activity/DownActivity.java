@@ -20,6 +20,6 @@ public class DownActivity extends BaseActivity {
     @Override
     public void initView(ViewDataBinding bindings) {
         setColor(getResources().getColor(R.color.bg_title_bar));
-        setBaseTitle(getResources().getString(R.string.black));
+        setBaseBask(getResources().getString(R.string.black));
     }
 }

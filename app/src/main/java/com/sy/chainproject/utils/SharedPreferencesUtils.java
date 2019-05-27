@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sy.chainproject.bean.UserBean;
 import com.sy.chainproject.constant.Constants;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class SharedPreferencesUtils {
@@ -61,13 +59,12 @@ public class SharedPreferencesUtils {
         editor.apply();
     }
 
-    public static  void setDataList(String tag, List<Integer> datalist) {
+    public static void setUserdata(String tag, UserBean userdata) {
         SharedPreferences.Editor editor = sp.edit();
-        if (null == datalist || datalist.size() <= 0)
-            return;
+        if (null == userdata) return;
         Gson gson = new Gson();
         //转换成json数据，再保存
-        String strJson = gson.toJson(datalist);
+        String strJson = gson.toJson(userdata);
         editor.clear();
         editor.putString(tag, strJson);
         editor.apply();
@@ -76,16 +73,15 @@ public class SharedPreferencesUtils {
     /**
      * 获取List
      */
-    public static List<Integer> getDataList(String tag) {
-        List<Integer> datalist = new ArrayList<Integer>();
+    public static UserBean getUserdata(String tag) {
         String strJson = sp.getString(tag, null);
         if (null == strJson) {
-            return datalist;
+            return null;
         }
         Gson gson = new Gson();
-        datalist = gson.fromJson(strJson, new TypeToken<List<Integer>>() {
+        return gson.fromJson(strJson, new TypeToken<UserBean>() {
         }.getType());
-        return datalist;
     }
+
 
 }

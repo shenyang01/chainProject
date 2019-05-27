@@ -9,7 +9,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
  */
 public class XAxisValueFormatter extends ValueFormatter {
     private String[] xValues;
-    private int count=0;
+   // private int count=0;
     public XAxisValueFormatter(String[] xValues) {
         if (xValues == null) return;
         this.xValues = xValues;

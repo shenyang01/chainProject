@@ -4,7 +4,6 @@ import android.accounts.NetworkErrorException;
 import android.util.Log;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import org.reactivestreams.Subscription;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -15,17 +14,17 @@ import java.util.concurrent.TimeoutException;
  * @ company zxcg
  * @ name sy
  */
-public abstract class BaseObserver<T> implements Observer<T> {
+public abstract class BaseObserver<E> implements Observer<E> {
 
     public void onSubscribe(Disposable s) {
         SubscriptionUtils.getInstance().addSubscription(s);
     }
 
     @Override
-    public void onNext(T t) {
+    public void onNext(E s) {
         try {
             Log.e("tag", Thread.currentThread().toString());
-            onSucceed(t);
+            onSucceed(s);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +56,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
     /**
      * 返回成功
      */
-    public abstract void onSucceed(T t);
+    public abstract void onSucceed(E e);
 
 
     /**

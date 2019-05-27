@@ -5,6 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="bg_title_bar">#6684f0</color>
     <color name="bg_checkable">#515151</color>
+    <color name="gray2">#D3D3D3</color>
+    <color name="gray3">#8a8a8a</color>
     <color name="black">#000000</color>
     <color name="translucent">#00000000</color>
     <color name="milky_white">#FCFCFC</color>

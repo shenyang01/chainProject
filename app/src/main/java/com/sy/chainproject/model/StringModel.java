@@ -7,6 +7,7 @@ import com.sy.chainproject.https.BaseObserver;
 import com.sy.chainproject.https.HttpRequest;
 import io.reactivex.Observable;
 
+
 /**
  * @ data  2018/8/24 9:20
  * @ author  zxcg
@@ -18,7 +19,7 @@ public class StringModel implements BaseModelView.Model<String, String> {
         new HttpRequest<String>().doHttpDeal(observable).subscribe(new BaseObserver<BaseData>() {
             @Override
             public void onSucceed(BaseData baseData) {
-                if (baseData.status.equals("1"))
+                if (baseData.status==1)
                     callback.onSucceed("数据上传成功");
                 else
                     callback.onFailure(baseData.message);

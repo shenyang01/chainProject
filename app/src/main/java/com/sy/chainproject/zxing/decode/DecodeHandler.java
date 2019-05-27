@@ -146,7 +146,7 @@ public class DecodeHandler extends Handler {
 			return null;
 		}
 		// Go ahead and assume it's YUV rather than die.
-		//return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top, rect.width
+		//retreat new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top, rect.width
 				//(), rect.height(), false);
 		// 直接返回整幅图像的数据，而不计算聚焦框大小。
 		return new PlanarYUVLuminanceSource(data, width, height, 0, 0, width, height, false);

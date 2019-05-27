@@ -6,6 +6,7 @@
     <dimen name="dp_m_20" tools:keep="@dimen/dp_m_20">-20dp</dimen>
     <dimen name="dp_m_12" tools:keep="@dimen/dp_m_12">-12dp</dimen>
     <dimen name="dp_m_10" tools:keep="@dimen/dp_m_10">-10dp</dimen>
+    <dimen name="dp_m_80" tools:keep="@dimen/dp_m_80">-80dp</dimen>
     <dimen name="dp_m_8" tools:keep="@dimen/dp_m_8">-8dp</dimen>
     <dimen name="dp_m_5" tools:keep="@dimen/dp_m_5">-5dp</dimen>
     <dimen name="dp_m_2" tools:keep="@dimen/dp_m_2">-2dp</dimen>
@@ -422,4 +423,5 @@
     <dimen name="sp_40" tools:keep="@dimen/sp_40">40sp</dimen>
     <dimen name="sp_42" tools:keep="@dimen/sp_42">42sp</dimen>
     <dimen name="sp_48" tools:keep="@dimen/sp_48">48sp</dimen>
+
 </resources>

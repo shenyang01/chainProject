@@ -1,13 +1,14 @@
 package com.sy.chainproject.fragment;
 
+import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import com.sy.chainproject.R;
+import com.sy.chainproject.activity.ImageViewPagerActivity;
 import com.sy.chainproject.adapter.BPagerAdapter;
 import com.sy.chainproject.adapter.BaseAdapter;
 import com.sy.chainproject.adapter.BaseViewHolder;
@@ -23,13 +24,12 @@ import java.util.List;
  * @ data  2019/3/20 9:25
  * @ author  zxcg
  */
-public class HomeFragment extends BaseFragment implements ViewPager.OnPageChangeListener, BaseHandler.OnReceiveMessageListener, BaseViewHolder.ViewOnclick, RefreshRecyclerView.OnPullRefresh {
+public class HomeFragment extends BaseFragment implements ViewPager.OnPageChangeListener, BaseHandler.OnReceiveMessageListener, BaseViewHolder.ViewOnclick, RefreshRecyclerView.OnPullRefresh{
     private FragmentHomeBinding binding;
     private List<View> dotlist;
     private long currentTime = 0;
     private int currentItem = 0;
     private BaseHandler.HandlerHolder handler = new BaseHandler.HandlerHolder(this);
-    private List<String> list;
 
     @Override
     public int getContent() {
@@ -39,11 +39,11 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
     @Override
     public void initView(ViewDataBinding bindings) {
         binding = (FragmentHomeBinding) bindings;
-        BPagerAdapter adapter = new BPagerAdapter(getActivity());
+        BPagerAdapter adapter = new BPagerAdapter(getActivity(), ImageView.ScaleType.FIT_XY);
         binding.homeViewPager.setAdapter(adapter);
         binding.homeViewPager.addOnPageChangeListener(this);
         dotlist = new ArrayList<>();
-        list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             list.add(i + "测试数据，可以点击..");
             // 添加点
@@ -59,7 +59,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
         binding.homeRv.setIsData(false);
         binding.homeRv.setOnPullRefresh(this);
-        binding.homeRv.setRecyclerViewAdapter(new BaseAdapter(getActivity(), R.layout.home_rv_item, list, true, this) {
+        binding.homeRv.setRecyclerViewAdapter(new BaseAdapter<String>(getActivity(), R.layout.rv_item_home, list, true, this) {
             @Override
             public void convert(BaseViewHolder holder, String data, int position) {
                 holder.setOnclick(R.id.home_rv_tv, position);
@@ -116,11 +116,18 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     public void clickView(View v, int position) {
-        Toast.makeText(getActivity(), list.get(position), Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getActivity(), ImageViewPagerActivity.class));
     }
 
     @Override
     public void PullRefresh() {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        dotlist.clear();
+        dotlist=null;
+        super.onDestroyView();
     }
 }

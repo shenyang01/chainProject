@@ -1,6 +1,7 @@
 package com.sy.chainproject.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.ViewDataBinding;
 import android.graphics.Rect;
@@ -48,7 +49,6 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
     private boolean isHasSurface = false;
     private boolean first;
     private static final String TAG = "CaptureActivity";
-    private ActivityCaptureBinding binding;
 
     @Override
     public View getContent() {
@@ -57,7 +57,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
 
     @Override
     public void initView(ViewDataBinding bindings) {
-        binding = (ActivityCaptureBinding) bindings;
+        ActivityCaptureBinding binding = (ActivityCaptureBinding) bindings;
         setColor(getResources().getColor(R.color.cap_bg));
         setBaseBask(getResources().getString(R.string.black));
         scanPreview = findViewById(R.id.capture_preview);
@@ -65,8 +65,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         scanCropView = findViewById(R.id.capture_crop_view);
         ImageView scanLine = findViewById(R.id.capture_scan_line);
         inactivityTimer = new InactivityTimer(this);
-        TranslateAnimation animation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT,
-                0.9f);
+        TranslateAnimation animation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.9f);
         animation.setDuration(4500);
         animation.setRepeatCount(-1);
         animation.setRepeatMode(Animation.RESTART);
@@ -99,13 +98,9 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
     private void checkBluetoothPermission() {
         //Manifest.permission.ACCESS_WIFI_STATE, Manifest.permission.CHANGE_WIFI_STATE
         if (Build.VERSION.SDK_INT >= 23) {
-            if (ContextCompat.checkSelfPermission(CaptureActivity.this,
-                    Manifest.permission.CAMERA)
-                    != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(CaptureActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 LogUtils.e(TAG, "CAMERA  " + " 权限请求中  " + Build.VERSION.SDK_INT);
-                ActivityCompat.requestPermissions(CaptureActivity.this,
-                        new String[]{Manifest.permission.CAMERA},
-                        123);
+                ActivityCompat.requestPermissions(CaptureActivity.this, new String[]{Manifest.permission.CAMERA}, 123);
             } else {
                 cameraManager = new CameraManager(getApplication());
                 LogUtils.e(TAG, " 有权限  ");
@@ -204,6 +199,9 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         inactivityTimer.onActivity();
         String info = rawResult.getText();
         LogUtils.e(TAG, info);
+        Intent intent = new Intent(this, CodeResultsActivity.class);
+        intent.putExtra("result_code", "");
+        startActivity(intent);
         finish();
     }
 

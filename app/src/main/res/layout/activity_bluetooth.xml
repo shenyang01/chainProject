@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="@dimen/dp_5"
+                        android:layout_marginEnd="@dimen/dp_5"
+                        android:layout_marginTop="@dimen/dp_10">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/bluetooth"/>
+            <ToggleButton
+                    android:id="@+id/blue_toggle"
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:textOff=""
+                    android:textOn=""
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bt_switch"/>
+        </RelativeLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:orientation="horizontal"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:layout_marginEnd="@dimen/dp_5">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/blue_name"/>
+            <TextView
+                    android:id="@+id/blue_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical|end"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/blue_paired"
+                android:layout_marginStart="@dimen/dp_5"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

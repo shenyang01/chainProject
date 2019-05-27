@@ -1,10 +1,10 @@
 package com.sy.chainproject.adapter;
 
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.view.View;
+
+import java.util.List;
 
 /**
  * @ data  2019/3/19 16:38
@@ -12,23 +12,31 @@ import android.view.View;
  */
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
+    private List<Fragment> list;
+    private List<String> list_Title;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm, List<Fragment> list, List<String> list_Title) {
         super(fm);
+        this.list = list;
+        this.list_Title = list_Title;
+    }
+
+
+    @Override
+    public Fragment getItem(int position) {
+        return list.get(position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return list == null ? 0 : list.size();
     }
 
+    /**
+     * //此方法用来显示tab上的名字
+     */
     @Override
-    public Fragment getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return false;
+    public CharSequence getPageTitle(int position) {
+        return list_Title.get(position);
     }
 }

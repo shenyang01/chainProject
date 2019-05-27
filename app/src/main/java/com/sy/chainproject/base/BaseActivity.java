@@ -14,12 +14,13 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
 import com.sy.chainproject.R;
 import com.sy.chainproject.databinding.ActivityBaseBinding;
+import com.sy.chainproject.presenter.BasePresenter;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     private Toast toast = null;
     private ActivityBaseBinding binding;
     private CountDownTimer timer;
-
+    private long currentTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -33,6 +34,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 " densityDpi " +metrics.densityDpi+"  density "+metrics.density);*/
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void onClick(View v) {
@@ -140,7 +145,16 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }.start();
     }
 
+    @Override
+    public void onBackPressed() {
 
+        super.onBackPressed();
+    }
+
+    public void removePresenter(BasePresenter presenter){
+        if(presenter!=null)
+            presenter.detach();
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

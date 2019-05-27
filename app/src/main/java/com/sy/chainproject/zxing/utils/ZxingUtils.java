@@ -13,12 +13,12 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
  * 生成条码工具类
  */
 public class ZxingUtils {
-    public static Bitmap createBitmap(String str) {
+    public Bitmap createBitmap(String str, BarcodeFormat format, int width, int height) {
         Bitmap bitmap = null;
         BitMatrix result;
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            result = multiFormatWriter.encode(str, BarcodeFormat.QR_CODE, 600, 600);
+            result = multiFormatWriter.encode(str, format, width, height);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             bitmap = barcodeEncoder.createBitmap(result);
         } catch (WriterException e) {

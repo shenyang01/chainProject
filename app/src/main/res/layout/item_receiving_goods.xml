@@ -1,0 +1,92 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/item_goods"
+        android:background="@color/white">
+    <TextView android:layout_width="wrap_content" android:layout_height="@dimen/dp_30"
+              android:gravity="center_vertical"
+              android:textSize="@dimen/sp_12"
+              android:paddingStart="@dimen/dp_5"
+              android:paddingEnd="@dimen/dp_5"
+              android:id="@+id/item_goods_detail"
+              android:text="@string/ct_goods"/>
+    <TextView android:layout_width="@dimen/dp_60" android:layout_height="@dimen/dp_30"
+              android:id="@+id/item_goods_update"
+              android:gravity="center"
+              android:textSize="@dimen/sp_12"
+              android:paddingStart="@dimen/dp_5"
+              android:paddingEnd="@dimen/dp_5"
+              android:layout_alignParentEnd="true"
+              android:textColor="@color/bg_title_bar"
+              android:text="@string/ct_update"/>
+
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
+                  android:orientation="horizontal"
+                  android:id="@+id/item_goods_ll2"
+                  android:layout_below="@+id/item_goods_detail"
+                  android:paddingStart="@dimen/dp_5"
+                  android:paddingEnd="@dimen/dp_5">
+        <TextView android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"
+                  android:textSize="@dimen/sp_12"
+                  android:text="@string/results_size"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:id="@+id/item_goods_size"
+                  android:textColor="@color/black"
+                  android:textSize="@dimen/sp_12"
+                  android:gravity="center_vertical"/>
+        <TextView android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
+                  android:textSize="@dimen/sp_12"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"
+                  android:text="@string/ct_color"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:textSize="@dimen/sp_12"
+                  android:id="@+id/item_goods_color"
+                  android:gravity="center_vertical"
+                  android:textColor="@color/black"
+                  android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
+                  android:orientation="horizontal"
+                  android:paddingStart="@dimen/dp_5"
+                  android:id="@+id/item_goods_ll3"
+                  android:layout_below="@+id/item_goods_ll2"
+                  android:paddingEnd="@dimen/dp_5">
+        <TextView android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"
+                  android:textSize="@dimen/sp_12"
+                  android:text="@string/ct_num2"/>
+        <EditText android:layout_width="0dp" android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:id="@+id/item_goods_num"
+                  android:textColor="@drawable/text_color"
+                  android:background="@null"
+                  android:enabled="false"
+                  android:textSize="@dimen/sp_12"
+                  android:gravity="center_vertical"/>
+        <TextView android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"
+                  android:textSize="@dimen/sp_12"
+                  android:text="@string/ct_num3"/>
+        <EditText android:layout_width="0dp" android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:id="@+id/item_goods_num_no"
+                  android:textColor="@drawable/text_color"
+                  android:background="@null"
+                  android:enabled="false"
+                  android:textSize="@dimen/sp_12"
+                  android:text="@string/value_0"
+                  android:gravity="center_vertical"/>
+    </LinearLayout>
+    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_3"
+    android:background="@color/line_gray"
+    android:layout_below="@+id/item_goods_ll3"/>
+</RelativeLayout>

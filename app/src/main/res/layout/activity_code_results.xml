@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="@dimen/dp_100" android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/dp_50"
+                      android:layout_marginStart="@dimen/dp_30"
+                      android:orientation="vertical">
+
+            <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                      android:textSize="@dimen/sp_16"
+                      android:textColor="@color/black"
+                      android:text="@string/code_info"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:text="@string/results_year"/>
+            <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/results_season"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:text="@string/results_title"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:text="@string/results_color"/>
+
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:text="@string/results_size"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:text="@string/results_component"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:text="@string/results_origin"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/dp_50"
+                      android:layout_marginStart="@dimen/dp_30"
+                      android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/code_info"
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/black"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:id="@+id/results_year"/>
+            <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:id="@+id/results_season"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:id="@+id/results_title"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:id="@+id/results_color"/>
+
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:id="@+id/results_size"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:id="@+id/results_component"/>
+            <TextView
+                    android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black"
+                    android:id="@+id/results_origin"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

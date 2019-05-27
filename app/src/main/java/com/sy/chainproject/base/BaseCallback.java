@@ -5,8 +5,8 @@ package com.sy.chainproject.base;
  * @ author  zxcg
  * 结果回调类
  */
-public interface BaseCallback<T> {
-    void onSucceed(T t);
+public interface BaseCallback<E> {
+    void onSucceed(E e);
 
     void onFailure(String err);
 }

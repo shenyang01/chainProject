@@ -3,9 +3,7 @@ package com.sy.chainproject.model;
 
 import com.sy.chainproject.base.BaseCallback;
 import com.sy.chainproject.bean.BaseData;
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.Observer;
 
 /**
  * @ data  2018/10/9 17:25
@@ -13,7 +11,7 @@ import io.reactivex.Observer;
  */
 public class BaseModelView {
     public interface View<E> {
-        void updateData(E e, int flags);
+        void updateData(E data, int flags);
 
         void onFailure(String e, int flags);
     }

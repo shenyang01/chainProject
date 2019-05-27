@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.view.View;
 import com.sy.chainproject.R;
-import com.sy.chainproject.activity.BarCodeActivity;
-import com.sy.chainproject.activity.WeeklySalesActivity;
+import com.sy.chainproject.activity.*;
 import com.sy.chainproject.base.BaseFragment;
 import com.sy.chainproject.databinding.FragmentCoordinateBinding;
 
@@ -17,6 +16,7 @@ import com.sy.chainproject.databinding.FragmentCoordinateBinding;
 public class CoordinateFragment extends BaseFragment implements View.OnClickListener {
     private FragmentCoordinateBinding binding;
     private Intent intent;
+
     @Override
     public int getContent() {
         return R.layout.fragment_coordinate;
@@ -41,6 +41,7 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        intent = null;
         switch (v.getId()) {
             case R.id.cd_weekly_sales:
                 intent = new Intent(getActivity(), WeeklySalesActivity.class);
@@ -49,37 +50,31 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
                 intent = new Intent(getActivity(), WeeklySalesActivity.class);
                 break;
             case R.id.cd_item:
-                intent =null;
                 break;
             case R.id.cd_item2:
-                intent =null;
                 break;
             case R.id.cd_item3:
-                intent =null;
+                intent = new Intent(getActivity(), ReceivingNoteActivity.class);
                 break;
             case R.id.cd_item4:
-                intent =null;
                 break;
             case R.id.cd_item5:
-                intent =null;
+                intent = new Intent(getActivity(), CTransshipmentActivity.class);
                 break;
             case R.id.cd_item6:
-                intent =null;
+                intent = new Intent(getActivity(), QueryActivity.class);
                 break;
             case R.id.cd_item7:
-                intent =new Intent(getActivity(), BarCodeActivity.class);
+                intent = new Intent(getActivity(), BarCodeActivity.class);
                 break;
             case R.id.cd_item8:
-                intent =null;
                 break;
             case R.id.cd_item9:
-                intent =null;
                 break;
             case R.id.cd_item10:
-                intent =null;
                 break;
         }
-        if(intent!=null){
+        if (intent != null) {
             startActivity(intent);
         }
     }

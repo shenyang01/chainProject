@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.sy.chainproject"
-        minSdkVersion 17
+        minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
         versionName "1.0.0"
@@ -25,6 +25,12 @@ android {
     dataBinding {
         enabled = true
     }
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -33,6 +39,7 @@ android {
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
     }
+    buildToolsVersion = '28.0.3'
 }
 
 dependencies {
@@ -61,4 +68,5 @@ dependencies {
     //implementation 'cjt.library.wheel:camera:1.1.6'
     implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
     implementation 'com.contrarywind:Android-PickerView:4.1.8'
+    implementation files('libs/poi-3.9.jar')
 }

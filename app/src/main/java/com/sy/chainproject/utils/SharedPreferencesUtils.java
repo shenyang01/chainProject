@@ -12,14 +12,11 @@ public class SharedPreferencesUtils {
 
     private static SharedPreferences sp;
 
-    private static Context mContext;
-
     /**
      * @param context application 初始化
      */
     public static void init(Context context) {
-        mContext = context;
-        sp = mContext.getSharedPreferences(Constants.SPNAME, Context.MODE_PRIVATE);
+        sp = context.getSharedPreferences(Constants.SPNAME, Context.MODE_PRIVATE);
     }
 
     public static void putString(String key, String value) {
@@ -65,7 +62,6 @@ public class SharedPreferencesUtils {
         Gson gson = new Gson();
         //转换成json数据，再保存
         String strJson = gson.toJson(userdata);
-        editor.clear();
         editor.putString(tag, strJson);
         editor.apply();
     }

@@ -3,6 +3,7 @@
     import android.support.v7.widget.RecyclerView;
     import android.util.SparseArray;
     import android.view.View;
+    import android.widget.EditText;
     import android.widget.ImageView;
     import android.widget.TextView;
 
@@ -60,7 +61,15 @@
             TextView view = getView(viewId);
             view.setText(str);
         }
-
+        public void setEdText(int viewId, String str) {
+            EditText view = getView(viewId);
+            view.setText(str);
+            view.setSelection(str.length());
+        }
+        public void setEdText(int viewId,boolean enabled) {
+            EditText view = getView(viewId);
+            view.setEnabled(enabled);
+        }
         public void setImagerView(int viewId, int Resources) {
             ImageView imageView = getView(viewId);
             imageView.setImageResource(Resources);

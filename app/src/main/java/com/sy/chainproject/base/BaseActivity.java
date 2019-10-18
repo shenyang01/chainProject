@@ -20,7 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private Toast toast = null;
     private ActivityBaseBinding binding;
     private CountDownTimer timer;
-    private long currentTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -41,7 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.base_exit||v.getId() == R.id.base_back) finish();
+        if (v.getId() == R.id.base_exit || v.getId() == R.id.base_back) finish();
     }
 
     /**
@@ -50,6 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private void init() {
         binding.baseExit.setOnClickListener(this);
         binding.baseBack.setOnClickListener(this);
+        binding.baseRight.setOnClickListener(this);
         // 添加内容文件
         View view = getContent();
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -82,6 +83,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     /**
+     *
      */
     public void setColor(int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -112,6 +114,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 binding.baseRl.setVisibility(View.GONE);
                 break;
         }
+    }
+
+    public void setBaseRight(String string) {
+        binding.baseRight.setVisibility(View.VISIBLE);
+        binding.baseRight.setText(string);
     }
 
     /**
@@ -151,10 +158,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onBackPressed();
     }
 
-    public void removePresenter(BasePresenter presenter){
-        if(presenter!=null)
-            presenter.detach();
+    public void removePresenter(BasePresenter presenter) {
+        if (presenter != null) presenter.detach();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

@@ -34,6 +34,7 @@
                       android:maxLength="16"
                       android:hint="@string/query_hint"
                       android:background="@null"
+                      android:maxLines="1"
                       android:textColor="@color/black"
                       android:textSize="@dimen/sp_14"/>
 
@@ -54,27 +55,21 @@
                   android:textSize="@dimen/sp_16"
                   android:layout_marginTop="@dimen/dp_10"
                   android:layout_marginEnd="@dimen/dp_10"
+                  android:background="?android:attr/selectableItemBackground"
                   android:text="@string/query"
                   android:id="@+id/query_bt"/>
         <View android:layout_width="match_parent" android:layout_height="@dimen/dp_5"
               android:background="@color/gray_w"
               android:id="@+id/query_view"
               android:layout_below="@+id/query_rl"/>
-        <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
-                  android:layout_below="@+id/query_view"
-                  android:textSize="@dimen/sp_14"
-                  android:textColor="@color/black"
-                  android:gravity="center_vertical"
-                  android:id="@+id/query_record"
-                  android:layout_marginStart="@dimen/dp_10"
-                  android:text="@string/historical_record"/>
+
         <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/query_rl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/query_rv"
-                android:layout_marginStart="@dimen/dp_10"
-                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_10"
-                android:layout_below="@+id/query_record"/>
+                android:overScrollMode="never"
+                android:id="@+id/query_results"/>
     </RelativeLayout>
 </layout>

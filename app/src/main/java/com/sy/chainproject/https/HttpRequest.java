@@ -1,16 +1,14 @@
 package com.sy.chainproject.https;
 
 import com.sy.chainproject.bean.BaseData;
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
  * @ data  2018/8/15 16:53
  * @ author  zxcg
+ * 标准格式
  */
 public class HttpRequest<T> {
     /**

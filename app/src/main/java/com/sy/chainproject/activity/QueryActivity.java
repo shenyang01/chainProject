@@ -5,16 +5,18 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.Toast;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.sy.chainproject.R;
 import com.sy.chainproject.adapter.BaseAdapter;
 import com.sy.chainproject.adapter.BaseViewHolder;
-import com.sy.chainproject.bean.QueryBean;
 import com.sy.chainproject.bean.QueryData;
+import com.sy.chainproject.bean.RetailBean;
 import com.sy.chainproject.bean.UserBean;
 import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.ActivityQueryBinding;
@@ -33,12 +35,11 @@ import java.util.List;
  * 查询  根据款号和订单号
  */
 
-public class QueryActivity extends Activity implements View.OnClickListener, BaseViewHolder.ViewOnclick, BaseModelView.View<List<QueryBean>> {
+public class QueryActivity extends Activity implements View.OnClickListener, BaseViewHolder.ViewOnclick, BaseModelView.View<List<RetailBean>>{
 
-    private ActivityQueryBinding binding;
-    private List<String> list;
+private ActivityQueryBinding binding;
     private QueryPresenter presenter;
-
+    private List<RetailBean> list;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,33 +47,35 @@ public class QueryActivity extends Activity implements View.OnClickListener, Bas
         binding.queryBack.setOnClickListener(this);
         binding.queryBt.setOnClickListener(this);
         binding.queryCancel.setOnClickListener(this);
-        getQuery();
-       list = new ArrayList<>();
-       /*  for (int i = 0; i < 15; i++) {
-            list.add(i + "  数据");
-        }*/
-       if(list.size()==0){
-           list.add(getString(R.string.no_data));
-       }
-        binding.queryRv.setLayoutManager(new GridLayoutManager(this, 2));
-        binding.queryRv.setAdapter(new BaseAdapter<String>(this, R.layout.rv_item_sp, list, this) {
+    }
+    private void setAdapter(List<RetailBean> data) {
+        binding.queryResults.setLayoutManager(new LinearLayoutManager(this));
+        binding.queryResults.setAdapter(new BaseAdapter<RetailBean>(this,R.layout.rv_item_results,data,this) {
             @Override
-            public void convert(BaseViewHolder holder, String data, int position) {
-                holder.setText(R.id.item_sp, data);
-                holder.setOnclick(R.id.item_sp, position);
+            public void convert(BaseViewHolder holder, RetailBean data, int position) {
+                holder.setText(R.id.item_results_barCode,data.getBarCode());
+                holder.setText(R.id.item_results_shop,data.getShopName());
+                holder.setText(R.id.item_results_name,data.getStyleName());
+                holder.setText(R.id.item_results_color,data.getColorName());
+                holder.setText(R.id.item_results_size,data.getSizeName());
+                holder.setText(R.id.item_results_stock,data.getQty()+"");
+                // holder.setImagerView(R.id.item_results_image,R.mipmap.collect);
+                Glide.with(QueryActivity.this).load("https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1558339950&di=ec7ea1a3602fda91e07910d1ba3a5682&src=http://pic36.nipic.com/20131110/14741728_170149392100_2.jpg").into((ImageView) holder.getView(R.id.item_results_image));
+                holder.setOnclick(R.id.item_results_image,position);
+                holder.setItemViewOnClick(position);
             }
         });
     }
-
-    private void getQuery(){
-        String styleNo = binding.queryQuery.getText().toString();
+    private void getQuery(String styleNo){
         if(TextUtils.isEmpty(styleNo))
             return;
         presenter = new QueryPresenter(this);
         HashMap<String,String> map = new HashMap<>();
         QueryData data= new QueryData();
         UserBean bean = SharedPreferencesUtils.getUserdata(Constants.USERDATA);
+        data.setFlag(Constants.FLAG);
         data.setStep(30);
+        data.setShopid(0); //0 查询全部  1 查询本店
         data.setUserid(bean.getUserid()+"");
         data.setDatabaseName(bean.getDatabaseName());
         data.setStyleNo(styleNo);
@@ -89,28 +92,34 @@ public class QueryActivity extends Activity implements View.OnClickListener, Bas
                 binding.queryQuery.setText("");
                 break;
             case R.id.query_bt:
-                startActivity(new Intent(QueryActivity.this,QueryResultsActivity.class));
+                String styleNo = binding.queryQuery.getText().toString();
+                if (TextUtils.isEmpty(styleNo))
+                    return;
+                getQuery(styleNo);
                 break;
         }
     }
-
     @Override
-    public void clickView(View v, int position) {
-        TextView view = (TextView) v;
-        String string = view.getText().toString();
-        if(getString(R.string.no_data).equals(string))
-            return;
-        binding.queryQuery.setText(string);
-    }
-
-    @Override
-    public void updateData(List<QueryBean> data, int flags) {
-
+    public void updateData(List<RetailBean> data, int flags) {
+        list = data;
+        setAdapter(data);
     }
 
     @Override
     public void onFailure(String e, int flags) {
+        Toast.makeText(this,e,Toast.LENGTH_SHORT).show();
+        setAdapter(new ArrayList<>());
+    }
 
+    @Override
+    public void clickView(View v, int position) {
+        if(v.getId()==R.id.item_results_image)
+            startActivity(new Intent(QueryActivity.this, ImageViewPagerActivity.class));
+        else{
+            Intent intent = new Intent();
+            intent.putExtra("bean",list.get(position));
+            setResult(Constants.SETRESULT_Q,intent);
+        }
     }
 
     @Override

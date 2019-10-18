@@ -20,10 +20,10 @@ public class CameraPopupWindow extends PopupWindow {
         View view = LayoutInflater.from(context).inflate(R.layout.camera_popopwindow, null);
         setContentView(view);
 
-        //this.setOutsideTouchable(true);
+        this.setOutsideTouchable(true);
         this.setTouchable(true);
         // 实例化一个ColorDrawable颜色为半透明
-        ColorDrawable dw = new ColorDrawable(context.getResources().getColor(R.color.white));
+        ColorDrawable dw = new ColorDrawable(context.getResources().getColor(R.color.translucent));
         // 点back键和其他地方使其消失,设置了这个才能触发OnDismisslistener ，设置其他控件变化等操作
         this.setBackgroundDrawable(dw);
         this.setAnimationStyle(R.style.pop_animation);
@@ -37,6 +37,4 @@ public class CameraPopupWindow extends PopupWindow {
             this.dismiss();
         }
     }
-
-
 }

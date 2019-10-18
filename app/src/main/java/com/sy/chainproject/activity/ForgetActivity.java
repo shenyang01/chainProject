@@ -45,7 +45,6 @@ public class ForgetActivity extends BaseActivity {
                 startActivity(new Intent(ForgetActivity.this,LoginActivity.class));
                 break;
         }
-        finish();
     }
 
     /**

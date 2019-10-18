@@ -14,8 +14,6 @@ import com.sy.chainproject.databinding.FragmentCoordinateBinding;
  * 业务
  */
 public class CoordinateFragment extends BaseFragment implements View.OnClickListener {
-    private FragmentCoordinateBinding binding;
-    private Intent intent;
 
     @Override
     public int getContent() {
@@ -24,7 +22,7 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
 
     @Override
     public void initView(ViewDataBinding bindings) {
-        binding = (FragmentCoordinateBinding) bindings;
+        FragmentCoordinateBinding binding = (FragmentCoordinateBinding) bindings;
         binding.cdWeeklySales.setOnClickListener(this);
         binding.cdShopSales.setOnClickListener(this);
         binding.cdItem.setOnClickListener(this);
@@ -37,11 +35,12 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
         binding.cdItem8.setOnClickListener(this);
         binding.cdItem9.setOnClickListener(this);
         binding.cdItem10.setOnClickListener(this);
+        binding.cdItem11.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        intent = null;
+        Intent intent = null;
         switch (v.getId()) {
             case R.id.cd_weekly_sales:
                 intent = new Intent(getActivity(), WeeklySalesActivity.class);
@@ -49,29 +48,38 @@ public class CoordinateFragment extends BaseFragment implements View.OnClickList
             case R.id.cd_shop_sales:
                 intent = new Intent(getActivity(), WeeklySalesActivity.class);
                 break;
+
             case R.id.cd_item:
+                intent = new Intent(getActivity(), RetailActivity.class);
                 break;
             case R.id.cd_item2:
-                break;
-            case R.id.cd_item3:
                 intent = new Intent(getActivity(), ReceivingNoteActivity.class);
                 break;
+            case R.id.cd_item3:
+                intent = new Intent(getActivity(), ReturnGoodsActivity.class);
+                break;
             case R.id.cd_item4:
+                intent = new Intent(getActivity(), BarCodeActivity.class);
                 break;
             case R.id.cd_item5:
-                intent = new Intent(getActivity(), CTransshipmentActivity.class);
+                intent = new Intent(getActivity(), TransshipmentActivity.class);
                 break;
             case R.id.cd_item6:
                 intent = new Intent(getActivity(), QueryActivity.class);
                 break;
             case R.id.cd_item7:
-                intent = new Intent(getActivity(), BarCodeActivity.class);
+                intent = new Intent(getActivity(), CashBankActivity.class);
                 break;
             case R.id.cd_item8:
+                intent = new Intent(getActivity(), VIPActivity.class);
                 break;
             case R.id.cd_item9:
+                intent = new Intent(getActivity(), InventoryActivity.class);
                 break;
             case R.id.cd_item10:
+                intent = new Intent(getActivity(), MonthlyReportActivity.class);
+                break;
+            case R.id.cd_item11:
                 break;
         }
         if (intent != null) {

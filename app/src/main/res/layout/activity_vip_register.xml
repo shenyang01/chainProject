@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/line_gray">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/white"
+                      android:layout_marginTop="@dimen/dp_10"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_phone"
+                      android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:layout_marginEnd="@dimen/dp_30"
+                      android:background="@null"
+                      android:textSize="@dimen/sp_14"
+                      android:hint="@string/please_input"
+                      android:maxLines="1"
+                      android:inputType="phone"
+                      android:maxLength="11"
+                      android:id="@+id/vip_register_phone"
+                      android:textColor="@color/black"
+                      android:gravity="center|end"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/white"
+                      android:layout_marginTop="@dimen/dp_10"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_name"
+                      android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:layout_marginEnd="@dimen/dp_30"
+                      android:background="@null"
+                      android:textSize="@dimen/sp_14"
+                      android:hint="@string/please_input"
+                      android:id="@+id/vip_register_name"
+                      android:maxLines="1"
+                      android:textColor="@color/black"
+                      android:gravity="center|end"/>
+        </LinearLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/white"
+                      android:layout_marginTop="@dimen/dp_10"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_card"
+                      android:gravity="center"/>
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="@dimen/dp_120" android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dp_30"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="1"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/vip_register_card"
+                    android:textColor="@color/black"
+                    android:gravity="center|end"/>
+        </RelativeLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/white"
+                      android:layout_marginTop="@dimen/dp_10"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_money"
+                      android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:layout_marginEnd="@dimen/dp_30"
+                      android:background="@null"
+                      android:textSize="@dimen/sp_14"
+                      android:inputType="number"
+                      android:maxLines="1"
+                      android:hint="@string/please_input"
+                      android:id="@+id/vip_register_money"
+                      android:textColor="@color/black"
+                      android:gravity="center|end"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/white"
+                      android:layout_marginTop="@dimen/dp_10"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/bank_remark"
+                      android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:layout_marginEnd="@dimen/dp_30"
+                      android:background="@null"
+                      android:textSize="@dimen/sp_14"
+                      android:hint="@string/please_input"
+                      android:id="@+id/vip_register_remark"
+                      android:textColor="@color/black"
+                      android:gravity="center|end"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/sp_18"
+                  android:id="@+id/vip_register"
+                  android:layout_marginEnd="@dimen/dp_10"
+                  android:layout_marginStart="@dimen/dp_10"
+                  android:gravity="center"
+                  android:background="@drawable/background_select_bt"
+                  android:text="@string/registration"
+                  android:layout_marginTop="@dimen/dp_30"/>
+    </LinearLayout>
+</layout>

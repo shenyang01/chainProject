@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
                 android:layout_height="wrap_content"
@@ -11,15 +11,17 @@
             <LinearLayout
                     android:layout_marginTop="@dimen/dp_20"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_120"
+                    android:layout_height="@dimen/dp_100"
                     android:orientation="horizontal"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:layout_marginEnd="@dimen/dp_15"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_30"
                     android:background="@drawable/coord_gray">
                 <TextView android:layout_width="0dp" android:layout_height="match_parent"
-                          android:paddingTop="@dimen/dp_10"
                           android:layout_weight="1"
                           android:id="@+id/cd_weekly_sales"
+                          android:layout_marginTop="@dimen/dp_5"
+                          android:layout_marginBottom="@dimen/dp_5"
                           android:drawableTop="@mipmap/weekly_sales"
                           android:textColor="@color/white"
                           android:textSize="18sp"
@@ -28,7 +30,8 @@
                 <TextView android:layout_width="0dp" android:layout_height="match_parent"
                           android:layout_weight="1"
                           android:id="@+id/cd_shop_sales"
-                          android:paddingTop="@dimen/dp_10"
+                          android:layout_marginTop="@dimen/dp_5"
+                          android:layout_marginBottom="@dimen/dp_5"
                           android:textColor="@color/white"
                           android:drawableTop="@mipmap/shop_sales"
                           android:textSize="18sp"
@@ -38,40 +41,42 @@
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
-                         android:layout_marginTop="@dimen/dp_20">
+                          android:layout_marginTop="@dimen/dp_20">
                 <LinearLayout
-                    android:id="@+id/cd_item"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_weight="1">
-                <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                           android:src="@mipmap/show"
-                           android:contentDescription="@string/app_name"/>
-                <TextView android:layout_width="@dimen/dp_60"
-                          android:layout_height="wrap_content"
-                          android:text="@string/retail"
-                          android:gravity="center"
-                          android:padding="@dimen/dp_10"
-                          android:textSize="@dimen/sp_14"
-                          android:textColor="@color/black"/>
-            </LinearLayout>
+                        android:id="@+id/cd_item"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_weight="1">
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/retail"
+                               android:contentDescription="@string/app_name"/>
+                    <TextView android:layout_width="@dimen/dp_50"
+                              android:layout_height="wrap_content"
+                              android:text="@string/retail"
+                              android:gravity="center"
+                              android:padding="@dimen/dp_5"
+                              android:textSize="@dimen/sp_14"
+                              android:textColor="@color/black"/>
+                </LinearLayout>
                 <LinearLayout
                         android:id="@+id/cd_item2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                               android:src="@mipmap/show"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/collect"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
-                              android:text="@string/wholesale"
+                              android:text="@string/receiving"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
@@ -81,18 +86,20 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                               android:src="@mipmap/collect"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/retreat"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
-                              android:text="@string/receiving"
+                              android:text="@string/return_goods"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -103,34 +110,37 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="?android:attr/selectableItemBackground"
                         android:gravity="center"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                               android:src="@mipmap/retreat"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/bar_code"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
-                              android:text="@string/return_goods"
+                              android:text="@string/bar_code"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
+
                 <LinearLayout
                         android:id="@+id/cd_item5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="?android:attr/selectableItemBackground"
                         android:gravity="center"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
                                android:src="@mipmap/transfer"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
                               android:text="@string/transfer"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
@@ -139,16 +149,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="?android:attr/selectableItemBackground"
                         android:gravity="center"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
                                android:src="@mipmap/query"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
                               android:text="@string/query"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
@@ -156,21 +167,23 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
                           android:layout_marginTop="@dimen/dp_10">
+
                 <LinearLayout
                         android:id="@+id/cd_item7"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                               android:src="@mipmap/bar_code"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/account"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
-                              android:text="@string/bar_code"
+                              android:text="@string/account"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
@@ -180,37 +193,41 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                               android:src="@mipmap/account"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/vip"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
-                              android:text="@string/account"
+                              android:text="@string/vip"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
+
                 <LinearLayout
                         android:id="@+id/cd_item9"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
+                        android:background="?android:attr/selectableItemBackground"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
-                               android:src="@mipmap/vip"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/inventory"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
-                              android:text="@string/vip"
+                              android:text="@string/report_inventory"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>
             </LinearLayout>
+
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                           android:orientation="horizontal"
@@ -220,17 +237,37 @@
                         android:id="@+id/cd_item10"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_weight="1">
-                    <ImageView android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50"
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                               android:src="@mipmap/report_monthly"
+                               android:contentDescription="@string/app_name"/>
+                    <TextView android:layout_width="@dimen/dp_50"
+                              android:layout_height="wrap_content"
+                              android:text="@string/report_monthly"
+                              android:gravity="center"
+                              android:padding="@dimen/dp_5"
+                              android:textSize="@dimen/sp_14"
+                              android:textColor="@color/black"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:id="@+id/cd_item11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1">
+                    <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
                                android:src="@mipmap/report_form"
                                android:contentDescription="@string/app_name"/>
-                    <TextView android:layout_width="@dimen/dp_60"
+                    <TextView android:layout_width="@dimen/dp_50"
                               android:layout_height="wrap_content"
                               android:text="@string/report_form"
                               android:gravity="center"
-                              android:padding="@dimen/dp_10"
+                              android:padding="@dimen/dp_5"
                               android:textSize="@dimen/sp_14"
                               android:textColor="@color/black"/>
                 </LinearLayout>

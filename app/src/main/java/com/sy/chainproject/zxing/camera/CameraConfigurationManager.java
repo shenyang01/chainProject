@@ -22,6 +22,7 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
+import com.sy.chainproject.utils.LogUtils;
 
 import java.util.*;
 
@@ -112,7 +113,7 @@ public final class CameraConfigurationManager {
         if (afterSize != null && (cameraResolution.x != afterSize.width || cameraResolution.y != afterSize.height)) {
             cameraResolution.x = afterSize.width;
             cameraResolution.y = afterSize.height;
-            Log.e(TAG, "Camera said it supported preview size " + cameraResolution.x + 'x' + cameraResolution.y + ", but after setting it, preview size is " + afterSize.width + 'x' + afterSize.height);
+            LogUtils.e(TAG, "Camera said it supported preview size " + cameraResolution.x + 'x' + cameraResolution.y + ", but after setting it, preview size is " + afterSize.width + 'x' + afterSize.height);
         }
 
         /** 设置相机预览为竖屏 */

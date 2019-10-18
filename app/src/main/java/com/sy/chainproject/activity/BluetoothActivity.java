@@ -6,7 +6,6 @@ import android.bluetooth.BluetoothDevice;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -14,10 +13,11 @@ import com.sy.chainproject.R;
 import com.sy.chainproject.adapter.BaseAdapter;
 import com.sy.chainproject.adapter.BaseViewHolder;
 import com.sy.chainproject.base.BaseActivity;
-import com.sy.chainproject.core.bluetooth.BluetoothUtils;
 import com.sy.chainproject.constant.Constants;
+import com.sy.chainproject.core.bluetooth.BluetoothUtils;
 import com.sy.chainproject.databinding.ActivityBluetoothBinding;
 import com.sy.chainproject.interfance.BluetoothResult;
+import com.sy.chainproject.utils.LogUtils;
 import pub.devrel.easypermissions.EasyPermissions;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class BluetoothActivity extends BaseActivity implements CompoundButton.On
     private BluetoothUtils utils;
     private List<BluetoothDevice> devices;
     private BaseAdapter<BluetoothDevice> adapter = null;
-
+    private Thread thread;
     //progressDialog = ProgressDialog.show(context, "请稍等...", "搜索蓝牙设备中...", true);
     @Override
     public View getContent() {
@@ -63,7 +63,6 @@ public class BluetoothActivity extends BaseActivity implements CompoundButton.On
         EasyPermissions.requestPermissions(this, getString(R.string.exception), Constants.REQUESTCODE, permissions);
 
     }
-
 
     private void setAdapter(List<BluetoothDevice> devices) {
         if (adapter == null) {
@@ -102,7 +101,10 @@ public class BluetoothActivity extends BaseActivity implements CompoundButton.On
     @Override
     public void clickView(View v, int position) {
         if (devices.size() == 0) return;
-        utils.connect(devices.get(position));
+        thread = new Thread(() -> {
+            utils.connect(devices.get(position));
+        });
+        thread.start();
     }
 
     @Override
@@ -122,12 +124,14 @@ public class BluetoothActivity extends BaseActivity implements CompoundButton.On
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
         //showToast("未允许权限，请前往设置打开");
-        Log.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
+        LogUtils.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
     }
 
     @Override
     protected void onDestroy() {
         utils.unregisterReceiver();
+        if(thread!=null)
+            thread.interrupt();
         super.onDestroy();
     }
 }

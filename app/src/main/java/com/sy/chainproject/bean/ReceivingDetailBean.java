@@ -18,6 +18,7 @@ public class ReceivingDetailBean {
      * qty : 4
      * sortid  尺码序号
      * qty_no  次品
+     * state  状态码 用来判断是否已确定修改
      */
 
     private String storeid;
@@ -30,7 +31,16 @@ public class ReceivingDetailBean {
     private String sortid;
     private String sizeName;
     private int qty;
-    private String qty_no;
+    private String qty_no = "0";
+    private boolean state = true;
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
 
     public String getQty_no() {
         return qty_no;

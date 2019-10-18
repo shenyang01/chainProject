@@ -1,6 +1,5 @@
 package com.sy.chainproject.fragment;
 
-import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -8,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.sy.chainproject.R;
-import com.sy.chainproject.activity.ImageViewPagerActivity;
 import com.sy.chainproject.adapter.BPagerAdapter;
 import com.sy.chainproject.adapter.BaseAdapter;
 import com.sy.chainproject.adapter.BaseViewHolder;
@@ -116,7 +114,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     public void clickView(View v, int position) {
-        startActivity(new Intent(getActivity(), ImageViewPagerActivity.class));
+       // startActivity(new Intent(getActivity(), ImageViewPagerActivity.class));
     }
 
     @Override

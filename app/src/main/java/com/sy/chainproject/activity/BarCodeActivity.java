@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.sy.chainproject.R;
 import com.sy.chainproject.base.BaseActivity;
+import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.ActivityBarCodeBinding;
 
 /**
@@ -15,8 +16,6 @@ import com.sy.chainproject.databinding.ActivityBarCodeBinding;
  */
 
 public class BarCodeActivity extends BaseActivity {
-    private ActivityBarCodeBinding binding;
-    private Intent intent;
 
     @Override
     public View getContent() {
@@ -25,7 +24,7 @@ public class BarCodeActivity extends BaseActivity {
 
     @Override
     public void initView(ViewDataBinding bindings) {
-        binding = (ActivityBarCodeBinding) bindings;
+        ActivityBarCodeBinding binding = (ActivityBarCodeBinding) bindings;
         setColor(getResources().getColor(R.color.bg_title_bar));
         setBaseBask(getString(R.string.black));
         setBaseTitle(getString(R.string.bar_tool));
@@ -39,7 +38,8 @@ public class BarCodeActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.bar_scan:
-                intent = new Intent(BarCodeActivity.this, CaptureActivity.class);
+                Intent intent = new Intent(BarCodeActivity.this, CaptureActivity.class);
+                intent.putExtra("flag",Constants.FLAG);
                 startActivity(intent);
                 // intent = new Intent(BarCodeActivity.this, CodeResultsActivity.class);
                 break;

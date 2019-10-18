@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import com.google.zxing.Result;
 import com.sy.chainproject.R;
 import com.sy.chainproject.base.BaseActivity;
+import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.ActivityCaptureBinding;
 import com.sy.chainproject.utils.LogUtils;
 import com.sy.chainproject.zxing.camera.CameraManager;
@@ -197,11 +198,21 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
      */
     public void handleDecode(Result rawResult, Bundle bundle) {
         inactivityTimer.onActivity();
-        String info = rawResult.getText();
-        LogUtils.e(TAG, info);
-        Intent intent = new Intent(this, CodeResultsActivity.class);
-        intent.putExtra("result_code", "");
-        startActivity(intent);
+        // String info = rawResult.getText();
+        // LogUtils.e(TAG, info);
+        // Intent intent = new Intent(this, CodeResultsActivity.class);
+        //intent.putExtra("result_code", "");
+        //startActivity(intent);
+        //TODO: 测试数据 后续修改
+        Intent intent = new Intent();
+        intent.putExtra("data", "900011000910050201"); //测试数据
+       int flag= getIntent().getIntExtra("flag",0);
+       if(flag==Constants.FLAG){
+           intent.setClass(this,CodeResultsActivity.class);
+           startActivity(intent);
+       }else {
+        setResult(Constants.SETRESULT, intent);
+       }
         finish();
     }
 

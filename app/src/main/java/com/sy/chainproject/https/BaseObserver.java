@@ -1,7 +1,7 @@
 package com.sy.chainproject.https;
 
 import android.accounts.NetworkErrorException;
-import android.util.Log;
+import com.sy.chainproject.utils.LogUtils;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -23,7 +23,6 @@ public abstract class BaseObserver<E> implements Observer<E> {
     @Override
     public void onNext(E s) {
         try {
-            Log.e("tag", Thread.currentThread().toString());
             onSucceed(s);
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,7 +31,7 @@ public abstract class BaseObserver<E> implements Observer<E> {
 
     @Override
     public void onError(Throwable e) {
-        Log.e("tag", "e.getMessage()  " + e.getMessage());
+        LogUtils.e("tag", "e.getMessage()  " + e.getMessage());
         try {
             if (e instanceof ConnectException || e instanceof TimeoutException || e instanceof UnknownHostException) {
                 onFailure("连接超时,请检查网络状态");

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
-import android.util.Log;
 import android.widget.RemoteViews;
 import com.sy.chainproject.R;
 import com.sy.chainproject.activity.LoginActivity;
@@ -122,7 +121,6 @@ public class DownLoadServer extends IntentService implements ProgressListener, B
     private void notificationInit() {
         manager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {  //8.0
-            Log.e("tag", "notificationInit");
             String id = "01";
             String name = "01Test";
             NotificationChannel mChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_LOW);

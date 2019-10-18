@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/dp_30"
+              android:orientation="horizontal"
+              android:background="?android:attr/selectableItemBackground">
+    <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/item_tDetail_check"
+            android:layout_width="@dimen/dp_30" android:layout_height="@dimen/dp_30"/>
+    <TextView android:layout_width="0dp" android:layout_height="match_parent"
+              android:id="@+id/item_tDetail_styleNo"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:gravity="center"
+              android:layout_weight="1"/>
+
+    <TextView android:layout_width="0dp" android:layout_height="match_parent"
+              android:id="@+id/item_tDetail_color"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:gravity="center"
+              android:layout_weight="1"/>
+    <TextView android:layout_width="0dp" android:layout_height="match_parent"
+              android:id="@+id/item_tDetail_price"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:gravity="center"
+              android:layout_weight="1"/>
+    <TextView android:layout_width="0dp" android:layout_height="match_parent"
+              android:id="@+id/item_tDetail_unit"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:gravity="center"
+              android:layout_weight="0.5"/>
+    <TextView android:layout_width="0dp" android:layout_height="match_parent"
+              android:id="@+id/item_tDetail_sources"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:gravity="center"
+              android:layout_weight="1"/>
+
+    <TextView android:layout_width="0dp" android:layout_height="match_parent"
+              android:id="@+id/item_tDetail_date"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:gravity="center"
+              android:layout_weight="1"/>
+</LinearLayout>

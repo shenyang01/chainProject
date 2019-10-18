@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/line_gray">
+
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                                android:background="@color/white">
+                    <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                              android:layout_marginStart="@dimen/dp_5"
+                              android:id="@+id/inventory_date_t"
+                              android:gravity="center"
+                              android:textSize="@dimen/sp_14"
+                              android:textColor="@color/black"
+                              android:text="@string/Inventory_date"/>
+                    <TextView android:layout_width="@dimen/dp_120" android:layout_height="match_parent"
+                              android:layout_marginStart="@dimen/dp_5"
+                              android:id="@+id/inventory_date"
+                              android:layout_toEndOf="@+id/inventory_date_t"
+                              android:gravity="center"
+                              android:background="@color/line_gray"
+                              android:hint="@string/inventory_hide"
+                              android:textColorHint="@color/gray3"
+                              android:layout_marginTop="@dimen/dp_2"
+                              android:layout_marginBottom="@dimen/dp_2"
+                              android:textSize="@dimen/sp_14"
+                              android:textColor="@color/black"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                                  android:layout_toEndOf="@+id/inventory_date">
+                        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                                  android:layout_weight="1"
+                                  android:background="?android:attr/selectableItemBackground"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp"
+                                  android:gravity="center"
+                                  android:text="@string/inventory_statistics"
+                                  android:id="@+id/inventory_statistics"/>
+                        <View android:layout_width="@dimen/dp_1" android:layout_height="@dimen/dp_20"
+                              android:layout_gravity="center"
+                              android:background="@color/line_gray"/>
+
+                        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                                  android:layout_weight="1"
+                                  android:background="?android:attr/selectableItemBackground"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp"
+                                  android:gravity="center"
+                                  android:id="@+id/inventory_historical"
+                                  android:text="@string/historical2_data"/>
+                        <View android:layout_width="@dimen/dp_1" android:layout_height="@dimen/dp_20"
+                              android:layout_gravity="center"
+                              android:background="@color/line_gray"/>
+
+                        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                                  android:layout_weight="1"
+                                  android:background="?android:attr/selectableItemBackground"
+                                  android:textColor="@color/black"
+                                  android:id="@+id/inventory_export"
+                                  android:textSize="14sp"
+                                  android:gravity="center"
+                                  android:text="@string/export"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/bg_title_bar"
+                      android:layout_marginTop="@dimen/dp_5"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/query_name"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/results_color"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/results_size"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/inventory_price"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/inventory_profit"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/inventory_account"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="2"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/firm_offer"/>
+
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inventory_rv"
+                android:overScrollMode="never"/>
+    </LinearLayout>
+</layout>

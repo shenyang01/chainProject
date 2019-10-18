@@ -27,12 +27,12 @@ public class ReceivingNotePresenter extends BasePresenter<ReceivingNoteBean, Lis
         model.postData(Observable, new BaseCallback<List<ReceivingNoteBean>>() {
             @Override
             public void onSucceed(List<ReceivingNoteBean> receivingGoods) {
-                view.updateData(receivingGoods,0);
+                view.updateData(receivingGoods,flags);
             }
 
             @Override
             public void onFailure(String err) {
-                view.onFailure(err,0);
+                view.onFailure(err,flags);
             }
         });
     }

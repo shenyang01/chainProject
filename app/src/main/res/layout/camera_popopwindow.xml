@@ -10,10 +10,10 @@ android:background="@drawable/popup_background">
               android:textColor="@color/black"
               android:gravity="center"
               android:id="@+id/popup_camera"/>
-    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_2"
+    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_1"
           android:layout_marginStart="@dimen/dp_20"
           android:layout_marginEnd="@dimen/dp_20"
-          android:background="@color/gray_w"/>
+          android:background="@color/gray3"/>
     <TextView android:layout_width="match_parent" android:layout_height="40dp"
               android:textSize="@dimen/sp_16"
               android:textColor="@color/black"

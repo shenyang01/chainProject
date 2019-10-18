@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:id="@+id/transshipment_detail_ll"
+                      android:background="@color/bg_title_bar">
+            <TextView
+                    android:layout_width="@dimen/dp_30" android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_10"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:text="@string/query_title"
+                      android:textSize="@dimen/sp_12"
+                      android:gravity="center"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/results_color"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/transshipment_detail_price"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/unit"
+                      android:layout_weight="0.5"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:text="@string/sources"
+                      android:textColor="@color/black"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/input_date"
+                      android:layout_weight="1"/>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:layout_below="@+id/transshipment_detail_ll"
+                android:layout_above="@+id/transshipment_detail_bt"
+                android:id="@+id/transshipment_detail_rv"/>
+        <Button android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+                android:layout_margin="@dimen/dp_20"
+                android:background="@drawable/login_button"
+                android:gravity="center"
+                android:id="@+id/transshipment_detail_bt"
+                android:layout_alignParentBottom="true"
+                android:textSize="@dimen/sp_14"
+                android:text="@string/ok2"
+                android:textColor="@color/white"/>
+    </RelativeLayout>
+</layout>

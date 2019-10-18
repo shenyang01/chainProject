@@ -54,7 +54,8 @@
 
 
         <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
-                        android:id="@+id/me_edition">
+                        android:id="@+id/me_edition"
+                        android:background="?android:attr/selectableItemBackground" >
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -84,7 +85,8 @@
               android:layout_marginStart="@dimen/dp_30"
               android:layout_marginEnd="@dimen/dp_30"/>
         <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
-                        android:id="@+id/me_down">
+                        android:id="@+id/me_down"
+                        android:background="?android:attr/selectableItemBackground" >
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -105,7 +107,8 @@
               android:layout_marginStart="@dimen/dp_30"
               android:layout_marginEnd="@dimen/dp_30"/>
         <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
-                        android:id="@+id/me_help">
+                        android:id="@+id/me_help"
+                        android:background="?android:attr/selectableItemBackground" >
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -124,7 +127,8 @@
         <View android:layout_width="match_parent" android:layout_height="@dimen/dp_20"
               android:background="@color/line_gray"/>
         <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
-                        android:id="@+id/me_exit_login">
+                        android:id="@+id/me_exit_login"
+                        android:background="?android:attr/selectableItemBackground" >
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

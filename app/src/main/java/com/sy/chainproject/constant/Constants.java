@@ -19,4 +19,7 @@ public class Constants {
     public static final String MEFRAGMENT = "MeFragment";
     public static final String DOWNLOAD = "http://pite-bmcp.com:8011/bmcp/downloadApk/PiteBatteryMonitor.apk";
     public static final int REQUESTCODE = 0x01;  //权限请求码
+    public static final int SETRESULT = 0x10;  //startActivityForResult 返回码
+    public static final int SETRESULT_Q = 0x11;  //startActivityForResult 返回码
+    public static final int FLAG= 0x12;  //条码扫描跳转标记
 }

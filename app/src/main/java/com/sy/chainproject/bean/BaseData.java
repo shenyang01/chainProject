@@ -12,7 +12,7 @@ public class BaseData<E> implements Serializable {
     public List<E> data;  // 放置返回数据
     public int status;  //请求返回状态码 0  失败  1 成功
     public String message; // 请求返回信息  “执行成功 执行失败”
-    public String messageCode;  //请求返回信息码
+    public int messageCode;  //请求返回信息码
     public String clietToken;  //令牌
     public int size;  //数组长度
 

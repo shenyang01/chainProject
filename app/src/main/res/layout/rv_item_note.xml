@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_20"
                   android:orientation="horizontal"
                   android:id="@+id/item_note_ll">
         <TextView android:layout_width="0dp" android:layout_height="match_parent"
                   android:drawableStart="@mipmap/shop"
                   android:gravity="center_vertical"
                   android:layout_weight="2"
+                  android:textSize="@dimen/sp_12"
                   android:layout_marginStart="@dimen/dp_5"
                   android:id="@+id/item_note_name"
                   android:drawablePadding="@dimen/dp_5"/>
         <TextView android:layout_width="0dp" android:layout_height="match_parent"
-                  android:gravity="center_vertical"
-                  android:layout_marginStart="@dimen/dp_5"
+                  android:gravity="center_vertical|end"
+                  android:layout_marginEnd="@dimen/dp_5"
+                  android:textSize="@dimen/sp_12"
                   android:layout_weight="1"
                   android:id="@+id/item_note_time"/>
     </LinearLayout>
@@ -26,10 +29,10 @@
           android:id="@+id/note_view"/>
 
     <ImageView
-            android:layout_width="@dimen/dp_80"
-            android:layout_height="@dimen/dp_80"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
             android:id="@+id/item_note_image"
-            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_10"
             android:layout_below="@+id/note_view"
             android:scaleType="fitXY"
             android:layout_marginEnd="@dimen/dp_5"
@@ -43,38 +46,48 @@
                   android:layout_toEndOf="@+id/item_note_image">
         <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
                   android:id="@+id/item_note_style"
-                  android:gravity="center_vertical"/>
-        <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
-                  android:id="@+id/item_note_info"
-                  android:textSize="@dimen/sp_12"
                   android:textColor="@color/black"
                   android:gravity="center_vertical"/>
 
+    <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
+                  android:orientation="horizontal">
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                  android:layout_weight="2"
+                  android:id="@+id/item_note_info"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"/>
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                  android:id="@+id/item_note_number"
+                  android:layout_weight="1"
+                  android:textSize="@dimen/sp_12"
+                  android:gravity="center_vertical"
+                  android:textColor="@color/black"/>
+    </LinearLayout>
+
         <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_30"
                       android:orientation="horizontal">
-            <TextView android:layout_width="0dp" android:layout_height="match_parent"
-                      android:id="@+id/item_note_number"
-                      android:layout_weight="1"
-                      android:gravity="center_vertical"
-                      android:textColor="@color/black"/>
+
             <TextView android:layout_width="0dp" android:layout_height="match_parent"
                       android:id="@+id/item_note_pAmount"
                       android:layout_weight="1"
                       android:gravity="center_vertical"
+                      android:textSize="@dimen/sp_12"
                       android:textColor="@color/black"/>
             <TextView android:layout_width="0dp" android:layout_height="match_parent"
                       android:id="@+id/item_note_discount"
                       android:layout_weight="1"
                       android:gravity="center_vertical"
+                      android:textSize="@dimen/sp_12"
                       android:textColor="@color/black"/>
             <TextView android:layout_width="0dp" android:layout_height="match_parent"
                       android:id="@+id/item_note_actAmount"
                       android:layout_weight="1"
                       android:gravity="center_vertical"
+                      android:textSize="@dimen/sp_12"
                       android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
-    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_10"
+    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_5"
           android:background="@color/line_gray"
           android:layout_below="@+id/item_note_ll2"/>
 </RelativeLayout>

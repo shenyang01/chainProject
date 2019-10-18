@@ -25,4 +25,5 @@ public abstract class BasePresenter<T, E> {
     }
 
     public abstract void getData(Observable<BaseData<T>> Observable, int flags);
+
 }

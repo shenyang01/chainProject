@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                    android:background="@color/line_gray"
+                  android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:layout_above="@+id/return_ll"
+                android:id="@+id/return_detail_rv"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:orientation="horizontal"
+                      android:layout_above="@+id/return_view"
+                      android:background="@color/white"
+                      android:id="@+id/return_ll">
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:textColor="@color/black"
+                      android:gravity="center_vertical"
+                      android:text="@string/ct_remarks"/>
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:id="@+id/return_remark"
+                      android:layout_marginEnd="@dimen/dp_5"
+                      android:background="@null"
+                      android:textSize="@dimen/sp_14"
+                      android:hint="@string/vip_optional"
+                      android:gravity="center"
+                      android:maxLines="1"
+                      android:textColor="@color/black"/>
+        </LinearLayout>
+        <View android:layout_width="match_parent" android:layout_height="@dimen/dp_2"
+              android:layout_above="@+id/return_receipt"
+              android:id="@+id/return_view"/>
+
+            <TextView
+                    android:id="@+id/return_receipt"
+                    android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_45"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/return_receipt"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:background="@color/colorAccent"
+                    android:textColor="@color/white"
+                    android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</layout>

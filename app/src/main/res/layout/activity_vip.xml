@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/line_gray">
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                        android:orientation="horizontal"
+                        android:background="@color/white">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:id="@+id/vip_ll"
+                          android:focusable="true" android:focusableInTouchMode="true"
+                          android:layout_toStartOf="@+id/vip_query">
+                <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                          android:layout_marginStart="@dimen/dp_5"
+                          android:gravity="center"
+                          android:textSize="@dimen/sp_14"
+                          android:textColor="@color/black"
+                          android:text="@string/date"/>
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                          android:layout_weight="1"
+                          android:id="@+id/vip_date"
+                          android:gravity="center"
+                          android:background="?android:attr/selectableItemBackground"
+                          android:hint="@string/inventory_hide"
+                          android:textColorHint="@color/gray3"
+                          android:textSize="@dimen/sp_14"
+                          android:textColor="@color/black"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                          android:layout_gravity="center"
+                          android:layout_marginStart="@dimen/dp_10"
+                          android:text="@string/register_phone"
+                          android:textColor="@color/black"
+                          android:textSize="@dimen/sp_14"
+                          android:gravity="center"/>
+                <EditText android:layout_width="0dp" android:layout_height="match_parent"
+                          android:id="@+id/vip_phone"
+                          android:layout_weight="1"
+                          android:inputType="phone"
+                          android:textColor="@color/black"
+                          android:textSize="@dimen/sp_14"
+                          android:background="@null"
+                          android:hint="@string/vip_optional"
+                          android:gravity="center"/>
+            </LinearLayout>
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:layout_gravity="center"
+                      android:id="@+id/vip_query"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:text="@string/query"
+                      android:textColor="@color/bg_title_bar"
+                      android:textSize="@dimen/sp_14"
+                      android:layout_alignParentEnd="true"
+                      android:gravity="center"
+                      android:background="?android:attr/selectableItemBackground"/>
+        </RelativeLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="@dimen/dp_5"
+                      android:background="@color/bg_title_bar">
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="2"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/register_phone"
+                      android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_name"
+                      android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_card_type"
+                      android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_integral"
+                      android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_balance"
+                      android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_store"
+                      android:gravity="center"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:layout_weight="1"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:text="@string/vip_date"
+                      android:gravity="center"/>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/vip_rv"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:overScrollMode="never"/>
+    </LinearLayout>
+</layout>

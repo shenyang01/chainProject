@@ -15,6 +15,6 @@ public class IApplication extends android.app.Application {
         super.onCreate();
         // AnomalyUtils.getInstance().init(this);
         SharedPreferencesUtils.init(this);
-
     }
+
 }

@@ -13,6 +13,8 @@ public class QueryData {
      * styleName :
      * startPage : 0
      * step : 30
+     * flag: 1
+     * shopid 查询库存是使用   0 查询所有门店   大于0  查询当前门店
      */
 
     private String userid;
@@ -21,6 +23,24 @@ public class QueryData {
     private String styleName;
     private int startPage;
     private int step;
+    private int flag;
+    private int shopid;
+
+    public int getShopid() {
+        return shopid;
+    }
+
+    public void setShopid(int shopid) {
+        this.shopid = shopid;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
 
     public String getUserid() {
         return userid;

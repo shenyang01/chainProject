@@ -20,6 +20,7 @@ import com.sy.chainproject.databinding.ActivityLoginBinding;
 import com.sy.chainproject.https.RetrofitFactory;
 import com.sy.chainproject.model.BaseModelView;
 import com.sy.chainproject.presenter.LoginPresenter;
+import com.sy.chainproject.utils.LogUtils;
 import com.sy.chainproject.utils.SharedPreferencesUtils;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -50,15 +51,15 @@ public class LoginActivity extends BaseActivity implements BaseModelView.View<Us
         setColor(getResources().getColor(R.color.white));
         setBaseVisibility(R.id.base_rl);
 
-            setColor(getResources().getColor(R.color.white));
-            setBaseVisibility(View.GONE);
-            setBaseVisibility(R.id.base_exit);
-            binding.loginButton.setOnClickListener(this);
-            binding.loginForget.setOnClickListener(this);
-            binding.loginRegistration.setOnClickListener(this);
-            //请求权限
-            String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-            EasyPermissions.requestPermissions(this, getString(R.string.exception), Constants.REQUESTCODE, permissions);
+        setColor(getResources().getColor(R.color.white));
+        setBaseVisibility(View.GONE);
+        setBaseVisibility(R.id.base_exit);
+        binding.loginButton.setOnClickListener(this);
+        binding.loginForget.setOnClickListener(this);
+        binding.loginRegistration.setOnClickListener(this);
+        //请求权限
+        String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
+        EasyPermissions.requestPermissions(this, getString(R.string.exception), Constants.REQUESTCODE, permissions);
     }
 
     /**
@@ -90,9 +91,11 @@ public class LoginActivity extends BaseActivity implements BaseModelView.View<Us
                 break;
             case R.id.login_forget:
                 startActivity(new Intent(this, ForgetActivity.class));
+                finish();
                 break;
             case R.id.login_registration:
                 startActivity(new Intent(this, RegisterActivity.class));
+                finish();
                 break;
         }
     }
@@ -107,10 +110,9 @@ public class LoginActivity extends BaseActivity implements BaseModelView.View<Us
 
     @Override
     public void updateData(UserBean data, int flags) {
-        SharedPreferencesUtils.setUserdata(Constants.USERDATA,data);
+        SharedPreferencesUtils.setUserdata(Constants.USERDATA, data);
         SharedPreferencesUtils.putString("phone", name);
         SharedPreferencesUtils.putString("pws", pws);
-        SharedPreferencesUtils.putString("imai", uuid);
         SharedPreferencesUtils.putBoolean(Constants.ISLOGIN, true); //是否需要自动登录
         startActivity(new Intent(this, MainActivity.class));
         finish();
@@ -142,7 +144,11 @@ public class LoginActivity extends BaseActivity implements BaseModelView.View<Us
         if (TextUtils.isEmpty(uuid)) {
             uuid = UUID.randomUUID().toString();
         }
-        SharedPreferencesUtils.putString(Constants.IMEI,uuid);
+        SharedPreferencesUtils.putString(Constants.IMEI, uuid);
+        LogUtils.e("tag", "uuid  " + uuid);
+        // TODO: 后续修改
+        SharedPreferencesUtils.putString(Constants.IMEI, "123321");
+
     }
 
     @Override

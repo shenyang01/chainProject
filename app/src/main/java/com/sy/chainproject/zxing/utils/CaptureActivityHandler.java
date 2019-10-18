@@ -57,6 +57,8 @@ public class CaptureActivityHandler extends Handler {
 
 	@Override
 	public void handleMessage(Message message) {
+		// TODO: 2019/6/10  测试扫码 直接跳转  后续修改
+		activity.handleDecode((Result) message.obj, message.getData());
 		switch (message.what) {
 		case R.id.restart_preview:
 			restartPreviewAndDecode();
@@ -76,6 +78,7 @@ public class CaptureActivityHandler extends Handler {
 			activity.setResult(Activity.RESULT_OK, (Intent) message.obj);
 			activity.finish();
 			break;
+
 		}
 	}
 

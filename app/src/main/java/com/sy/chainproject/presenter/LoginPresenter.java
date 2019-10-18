@@ -26,12 +26,12 @@ public class LoginPresenter extends BasePresenter<UserBean, UserBean> {
         model.postData(Observable, new BaseCallback<UserBean>() {
             @Override
             public void onSucceed(UserBean userdata) {
-                view.updateData(userdata,0);
+                view.updateData(userdata,flags);
             }
 
             @Override
             public void onFailure(String err) {
-                view.onFailure(err,0);
+                view.onFailure(err,flags);
             }
         });
     }

@@ -4,7 +4,6 @@
           package="com.sy.chainproject">
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
@@ -50,13 +49,27 @@
         <activity android:name=".activity.ImageViewPagerActivity"/>
         <activity android:name=".activity.BluetoothActivity"/>
         <activity android:name=".activity.HelpActivity"/>
-        <activity android:name=".activity.CTransshipmentActivity"/>
-        <activity android:name=".activity.ReceivingDetailActivity"/>
+        <activity android:name=".activity.TransshipmentActivity"/>
+        <activity android:name=".activity.TransshipmentAddActivity"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.ReceivingDetailActivity"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".activity.ReceivingNoteActivity"/>
         <activity android:name=".activity.QueryActivity"/>
-        <activity android:name=".activity.QueryResultsActivity"/>
         <activity android:name=".activity.ReturnGoodsActivity"/>
-        <activity android:name=".activity.ImageViewPagerActivity"/>
+        <activity android:name=".activity.RetailActivity"/>
+        <activity android:name=".activity.RetailHistoryActivity"/>
+        <activity android:name=".activity.RHistoryDetailActivity"/>
+        <activity android:name=".activity.InventoryActivity"/>
+        <activity android:name=".activity.MonthlyReportActivity"/>
+        <activity android:name=".activity.HistoryStatementActivity"/>
+        <activity android:name=".activity.CashBankActivity"/>
+        <activity android:name=".activity.VIPActivity"/>
+        <activity android:name=".activity.VIPRegisterActivity"/>
+        <activity android:name=".activity.TransshipmentDetailActivity"/>
+        <activity android:name=".activity.ReturnGoodsDetailActivity"/>
+        <activity android:name=".activity.ReturnGoodsAddActivity"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
 
         <service android:name=".download.DownLoadServer"/>
         <provider

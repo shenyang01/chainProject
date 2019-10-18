@@ -3,12 +3,32 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="vertical"
                   android:layout_width="match_parent"
-                  android:layout_height="match_parent">
+                  android:layout_height="match_parent"
+                  android:background="@color/line_gray">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:background="@color/white">
+            <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:id="@+id/monthly_date_t"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:text="@string/date"/>
+            <TextView android:layout_width="@dimen/dp_120" android:layout_height="match_parent"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:id="@+id/receiving_note_date"
+                      android:gravity="center"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:hint="@string/inventory_hide"
+                      android:textColorHint="@color/gray3"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"/>
+        </LinearLayout>
         <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="@dimen/dp_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/receiving_note"
-                android:layout_marginTop="@dimen/dp_20"
                 android:layout_marginBottom="@dimen/dp_20"/>
     </LinearLayout>
 </layout>

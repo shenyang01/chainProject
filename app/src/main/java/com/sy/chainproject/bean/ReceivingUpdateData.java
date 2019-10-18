@@ -12,22 +12,43 @@ public class ReceivingUpdateData {
     /**
      * storeid : 1905140904181000
      * size : 2
-     * IMEI : 123321
+     * userid : 1000
+     * "outStoreid": "1906020312571000",
+     * "typeStore": "总部配货",
+     * "dPerson": "陈先生",
      * remark :
      * data : [{"mkey":"19051409041810000050002","pid":"190514090418100000500","colorid":"005","sortid ":"5","qty":"9","fail ":"1"},{"mkey":"19051409041810000050003","pid":"190514090418100000500","colorid":"005","sortid ":"6","qty":"10","fail":"0"}]
      */
-    private String storeid;
     private int size;
-    private String IMEI;
+    private int userid;
     private String remark;
+    private String outStoreid;
+    private int typeStore;
+    private String dPerson;
     private List<DataBean> data;
 
-    public String getStoreid() {
-        return storeid;
+    public String getOutStoreid() {
+        return outStoreid;
     }
 
-    public void setStoreid(String storeid) {
-        this.storeid = storeid;
+    public void setOutStoreid(String outStoreid) {
+        this.outStoreid = outStoreid;
+    }
+
+    public int getTypeStore() {
+        return typeStore;
+    }
+
+    public void setTypeStore(int typeStore) {
+        this.typeStore = typeStore;
+    }
+
+    public String getdPerson() {
+        return dPerson;
+    }
+
+    public void setdPerson(String dPerson) {
+        this.dPerson = dPerson;
     }
 
     public int getSize() {
@@ -38,12 +59,12 @@ public class ReceivingUpdateData {
         this.size = size;
     }
 
-    public String getIMEI() {
-        return IMEI;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setIMEI(String IMEI) {
-        this.IMEI = IMEI;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public String getRemark() {

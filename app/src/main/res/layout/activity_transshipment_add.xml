@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:id="@+id/transshipment_add_ll"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="@dimen/dp_40" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/transshipment_deliver2"/>
+            <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:id="@+id/transshipment_add_date"
+                      android:background="?android:attr/selectableItemBackground"
+                      android:layout_weight="1"/>
+            <TextView android:layout_width="40dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/query_name"/>
+            <EditText android:layout_width="0dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:layout_weight="1"
+                      android:hint="@string/vip_optional"
+                      android:id="@+id/transshipment_add_styleNo"
+                      android:background="@null"
+                      android:textColor="@color/colorAccent"
+                      android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/pAmount2"/>
+            <EditText android:layout_width="0dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:layout_weight="1"
+                      android:id="@+id/transshipment_add_pAmount"
+                      android:background="@null"
+                      android:textColor="@color/colorAccent"
+                      android:text="@string/value_0"
+                      android:gravity="center"/>
+
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:layout_below="@+id/transshipment_add_ll"
+                      android:id="@+id/transshipment_add_ll2"
+                      android:orientation="horizontal">
+            <TextView android:layout_width="40dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/transshipment_type2"/>
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_weight="1"
+                    android:id="@+id/transshipment_add_type"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"/>
+
+            <TextView android:layout_width="40dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/season"/>
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_weight="1"
+                    android:id="@+id/transshipment_add_season"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"/>
+            <TextView android:layout_width="40dp" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_12"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/brand"/>
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_weight="1"
+                    android:id="@+id/transshipment_add_brand"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"/>
+        </LinearLayout>
+        <View android:layout_below="@+id/transshipment_add_ll2"
+              android:id="@+id/transshipment_add_view"
+              android:layout_width="match_parent" android:layout_height="@dimen/dp_5"
+              android:background="@color/line_gray"/>
+        <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/transshipment_add_view"
+                android:id="@+id/transshipment_add_rv"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_above="@+id/transshipment_add_bt"
+                android:overScrollMode="never"
+                android:background="@color/line_gray"/>
+        <TextView android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                  android:text="@string/ct_add_goods"
+                  android:textColor="@color/bg_title_bar"
+                  android:id="@+id/transshipment_add_bt"
+                  android:textSize="@dimen/sp_14"
+                  android:layout_above="@+id/transshipment_add_ll3"
+                  android:background="@color/line_gray"
+                  android:gravity="center"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:orientation="horizontal"
+                      android:layout_above="@+id/transshipment_add_view2"
+                      android:id="@+id/transshipment_add_ll3">
+            <TextView android:layout_width="@dimen/dp_40" android:layout_height="match_parent"
+                      android:text="@string/bank_remark"
+                      android:textColor="@color/black"
+                      android:textSize="@dimen/sp_12"
+                      android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:background="@null"
+                      android:id="@+id/transshipment_add_remark"
+                      android:layout_marginEnd="@dimen/dp_5"
+                      android:gravity="center"/>
+        </LinearLayout>
+        <View android:layout_above="@+id/transshipment_add_submission"
+              android:id="@+id/transshipment_add_view2"
+              android:layout_width="match_parent" android:layout_height="@dimen/dp_5"
+              android:background="@color/line_gray"/>
+        <Button android:layout_width="match_parent" android:layout_height="@dimen/dp_50"
+              android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:text="@string/submission"
+                android:background="@drawable/login_button"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/white"
+                android:id="@+id/transshipment_add_submission"/>
+    </RelativeLayout>
+</layout>

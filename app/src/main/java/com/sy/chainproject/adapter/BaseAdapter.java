@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.sy.chainproject.R;
+import com.sy.chainproject.utils.LogUtils;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<T> mlist;
     private LayoutInflater miInflater;
+    private int TYPE_EMPTY = -1;
     private int TYPE_FOOTER = 0;
     private int TYPE_ITEM = 1;
     private FootHolder FootHolder = null;
@@ -43,7 +45,12 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        if (viewType == TYPE_FOOTER) {
+        if(viewType == TYPE_EMPTY){
+            view = miInflater.inflate(R.layout.item_detaempty, parent, false);
+            LogUtils.e("viewType  "+viewType);
+            return new DataEmptyHolder(view);
+        }
+        else if (viewType == TYPE_FOOTER) {
             view = miInflater.inflate(R.layout.item_footitem, parent, false);
             return new FootHolder(view);
         } else {
@@ -56,7 +63,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-         if (position + 1 == getItemCount() && isFoot) {
+        if (mlist == null||mlist.size()==0)
+            return TYPE_EMPTY;
+         else if (position + 1 == getItemCount() && isFoot) {
             return TYPE_FOOTER;
         } else {
             return TYPE_ITEM;
@@ -70,7 +79,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         } else if (holder instanceof FootHolder) {
             FootHolder = (FootHolder) holder;
         } else {
-            ((DataEmptyHolder) holder).data_empty.setText("");
+            ((DataEmptyHolder) holder).data_empty.setText("暂无数据");
         }
 
     }
@@ -98,8 +107,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemCount() {
-        if (mlist == null)
-            return 0;
+        if (mlist == null||mlist.size()==0)
+            return 1;
         else if (isFoot)
             return mlist.size() + 1;
         else
@@ -126,4 +135,5 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
             data_empty = itemView.findViewById(R.id.data_emptys);
         }
     }
+
 }

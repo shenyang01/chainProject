@@ -11,8 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import com.sy.chainproject.adapter.BaseAdapter;
 
@@ -49,7 +47,7 @@ public class RefreshRecyclerView extends RecyclerView {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Log.e("tag","onScrollStateChanged");
+               // Log.e("tag","onScrollStateChanged");
                 currentNewState = newState;
                 if (!state && !isfull) {
                     isfull = true;
@@ -69,7 +67,6 @@ public class RefreshRecyclerView extends RecyclerView {
                     //((BaseAdapter) getAdapter()).setFootVisibility(View.GONE);
                     return;
                 }
-
                 if (currentNewState == -1) { //当前没有滑动 处理数据不足一页的情况
                     ((BaseAdapter) getAdapter()).setFootVisibility(View.GONE);
                     return;
@@ -82,7 +79,7 @@ public class RefreshRecyclerView extends RecyclerView {
                 }*/
                 int lastVisibleItemPosition = ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
                 if (lastVisibleItemPosition + 1 == getAdapter().getItemCount()&&dy > 0) {
-                    Log.e("tag","onScrolled  "+dy+isLoading);
+                   // Log.e("tag","onScrolled  "+dy+isLoading);
                     if (!isLoading) {
                         setisLoading(true);
                         if(mOnPullRefresh==null)
@@ -120,10 +117,10 @@ public class RefreshRecyclerView extends RecyclerView {
      *
      * @param state 判断当前是否还有数据
      */
-    public boolean setIsData(boolean state) {
+    public void setIsData(boolean state) {
         this.state = state;
-        return state;
     }
+
     public void setOnPullRefresh(OnPullRefresh mOnPullRefresh) {
         this.mOnPullRefresh = mOnPullRefresh;
     }

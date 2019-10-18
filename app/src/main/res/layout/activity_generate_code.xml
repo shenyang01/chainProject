@@ -23,7 +23,6 @@
                     android:id="@+id/generate_code"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_16"
-                    android:backgroundTint="@color/blue"
                     android:hint="@string/generate_tips"/>
         </android.support.design.widget.TextInputLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
@@ -37,34 +36,34 @@
                       android:gravity="center"
                       android:inputType="number"
                       android:text="@string/number1"/>
-            <Button android:layout_width="wrap_content" android:layout_height="@dimen/dp_30"
-                    android:padding="@dimen/dp_3"
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_40"
                     android:id="@+id/setting_number"
-                    android:textColor="@color/bg_title_bar"
-                    android:background="@null"
+                    android:textColor="@color/white"
+                      android:gravity="center"
+                    android:background="@drawable/background_select_bt"
                     android:layout_marginStart="@dimen/dp_30"
                     android:text="@string/print_number"/>
         </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
                       android:orientation="horizontal"
                       android:layout_marginStart="@dimen/dp_30"
                       android:layout_marginTop="@dimen/dp_20"
                       android:layout_marginEnd="@dimen/dp_30">
-            <TextView android:layout_width="0dp" android:layout_height="@dimen/dp_50"
-                      android:textColor="@color/blue"
+            <TextView android:layout_width="@dimen/dp_100" android:layout_height="match_parent"
+                      android:textColor="@color/bg_title_bar"
                       android:textSize="@dimen/sp_18"
                       android:id="@+id/generate"
-                      android:gravity="center_vertical|start"
-                      android:layout_weight="1"
+                      android:gravity="center"
                       android:text="@string/generate"/>
-            <TextView android:layout_width="0dp" android:layout_height="@dimen/dp_50"
-                      android:textColor="@color/blue"
+            <TextView android:layout_width="100dp" android:layout_height="match_parent"
+                      android:textColor="@color/bg_title_bar"
                       android:textSize="@dimen/sp_18"
                       android:id="@+id/generate_print"
-                      android:gravity="center_vertical|end"
-                      android:layout_weight="1"
+                      android:layout_gravity="end"
+                      android:gravity="center"
+                      android:layout_alignParentEnd="true"
                       android:text="@string/generate_print"/>
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 </layout>

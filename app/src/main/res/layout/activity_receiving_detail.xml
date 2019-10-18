@@ -4,53 +4,87 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/line_gray">
-
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/goods_details"
-                android:layout_width="match_parent" android:layout_height="match_parent"
-                android:layout_above="@+id/rg_ll3"/>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_60"
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
                       android:orientation="horizontal"
-                      android:layout_above="@+id/rg_view"
                       android:background="@color/white"
                       android:id="@+id/rg_ll3">
             <TextView android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
                       android:textSize="@dimen/sp_14"
                       android:textColor="@color/black"
-                      android:layout_marginStart="@dimen/dp_10"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:gravity="center_vertical"
+                      android:text="@string/receiving_type"/>
+            <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/receiving_type"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="1"
+                    android:textColor="@color/black"/>
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:textColor="@color/black"
+                      android:gravity="center"
+                      android:text="@string/receiving_name"/>
+            <EditText android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_marginEnd="@dimen/dp_5"
+                      android:id="@+id/receiving_name"
+                      android:layout_weight="1"
+                      android:background="@null"
+                      android:hint="@string/not_null"
+                      android:gravity="center"
+                      android:textSize="@dimen/sp_14"
+                      android:maxLines="1"
+                      android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/goods_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rg_ll3"
+                android:layout_above="@+id/rg_ll4"/>
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/dp_40"
+                      android:orientation="horizontal"
+                      android:layout_above="@+id/rg_view2"
+                      android:background="@color/white"
+                      android:id="@+id/rg_ll4">
+            <TextView android:layout_width="@dimen/dp_60" android:layout_height="match_parent"
+                      android:textSize="@dimen/sp_14"
+                      android:layout_marginStart="@dimen/dp_5"
+                      android:textColor="@color/black"
                       android:gravity="center_vertical"
                       android:text="@string/ct_remarks"/>
             <EditText android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:id="@+id/rg_original"
+                      android:layout_marginEnd="@dimen/dp_5"
                       android:background="@null"
                       android:textSize="@dimen/sp_14"
-                      android:maxLines="2"
+                      android:hint="@string/vip_optional"
+                      android:gravity="center"
+                      android:maxLines="1"
                       android:textColor="@color/black"/>
         </LinearLayout>
         <View android:layout_width="match_parent" android:layout_height="@dimen/dp_2"
-       android:layout_above="@+id/rg_receipt"
-        android:id="@+id/rg_view"/>
-        <RelativeLayout android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_40"
-                        android:id="@+id/rg_receipt"
-                        android:layout_alignParentBottom="true"
-                        android:background="@color/white">
-            <TextView
-                    android:id="@+id/cancel_receipt"
-                    android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
-                    android:text="@string/cancel_receipt"
-                    android:gravity="center"
-                    android:layout_toStartOf="@+id/confirm_receipt"
-                    android:textColor="@color/black"/>
+              android:layout_above="@+id/confirm_receipt"
+              android:id="@+id/rg_view2"/>
+
+
             <TextView
                     android:id="@+id/confirm_receipt"
-                    android:layout_width="@dimen/dp_80" android:layout_height="match_parent"
+                    android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_45"
                     android:text="@string/confirm_receipt"
+                    android:layout_alignParentBottom="true"
                     android:gravity="center"
-                    android:layout_marginStart="@dimen/dp_10"
-                    android:textColor="@color/colorAccent"
+                    android:background="@color/colorAccent"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:textColor="@color/white"
                     android:layout_alignParentEnd="true"/>
-        </RelativeLayout>
+
     </RelativeLayout>
 </layout>

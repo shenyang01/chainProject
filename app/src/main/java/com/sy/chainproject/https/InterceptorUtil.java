@@ -1,6 +1,6 @@
 package com.sy.chainproject.https;
 
-import android.util.Log;
+import com.sy.chainproject.utils.LogUtils;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 
@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 public class InterceptorUtil {
 
     //日志拦截器
-    public static HttpLoggingInterceptor LogInterceptor() {
-        return new HttpLoggingInterceptor(message -> Log.e("tag", "tag: " + message)).setLevel(HttpLoggingInterceptor.Level.BODY);//设置打印数据的级别
+     static HttpLoggingInterceptor LogInterceptor() {
+        return new HttpLoggingInterceptor(message -> LogUtils.e("tag", "tag: " + message)).setLevel(HttpLoggingInterceptor.Level.BODY);//设置打印数据的级别
     }
 }

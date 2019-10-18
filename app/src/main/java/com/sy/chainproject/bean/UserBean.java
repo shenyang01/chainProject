@@ -28,6 +28,7 @@ public class UserBean implements Serializable {
      * clientPort : 5000
      * clietToken :
      * databaseName : SHOPDB0001
+     * shopid 10002    查询库存是使用   0 查询所有门店   大于0  查询当前门店
      */
 
     private String ip;

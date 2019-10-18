@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+              android:gravity="center"
+              android:textColor="@color/black"
+              android:layout_weight="1"
+              android:textSize="@dimen/sp_12"
+              android:id="@+id/bank_name"/>
+    <EditText android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+              android:gravity="center"
+              android:textColor="@color/colorAccent"
+              android:layout_weight="1"
+              android:maxLines="1"
+              android:enabled="false"
+              android:inputType="number"
+              android:textSize="@dimen/sp_12"
+              android:id="@+id/bank_amount"/>
+    <EditText android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+              android:gravity="center"
+              android:textColor="@color/colorAccent"
+              android:enabled="false"
+              android:layout_weight="1"
+              android:maxLines="1"
+              android:textSize="@dimen/sp_12"
+              android:id="@+id/bank_remark"/>
+    <TextView android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+              android:gravity="center"
+              android:textColor="@color/black"
+              android:layout_weight="1"
+              android:textSize="@dimen/sp_12"
+              android:id="@+id/bank_balance"/>
+    <TextView android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+              android:gravity="center"
+              android:textColor="@color/black"
+              android:layout_weight="1"
+              android:textSize="@dimen/sp_12"
+              android:id="@+id/bank_date"/>
+    <TextView android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+              android:gravity="center"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="@dimen/sp_12"
+              android:id="@+id/bank_operator"/>
+    <Button android:layout_width="@dimen/dp_0" android:layout_height="@dimen/dp_40"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:textSize="@dimen/sp_12"
+            android:layout_marginTop="@dimen/dp_2"
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="@color/colorAccent"
+            android:text="@string/ct_update"
+            android:id="@+id/bank_ok"/>
+</LinearLayout>

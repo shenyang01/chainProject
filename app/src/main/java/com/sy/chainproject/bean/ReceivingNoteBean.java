@@ -41,7 +41,7 @@ public class ReceivingNoteBean {
     private String dtime;
     private String remark;
     private String pAmount;
-    private long storeid;
+    private String outStoreid;
     private String styleNo;
     private int styleid;
     private String typeOut;
@@ -62,6 +62,22 @@ public class ReceivingNoteBean {
     private String styleName;
     private int customerid;
     private String totalAmount;
+
+    public String getpAmount() {
+        return pAmount;
+    }
+
+    public void setpAmount(String pAmount) {
+        this.pAmount = pAmount;
+    }
+
+    public String getOutStoreid() {
+        return outStoreid;
+    }
+
+    public void setOutStoreid(String outStoreid) {
+        this.outStoreid = outStoreid;
+    }
 
     public String getMkey() {
         return mkey;
@@ -95,13 +111,7 @@ public class ReceivingNoteBean {
         this.pAmount = pAmount;
     }
 
-    public long getStoreid() {
-        return storeid;
-    }
 
-    public void setStoreid(long storeid) {
-        this.storeid = storeid;
-    }
 
     public String getStyleNo() {
         return styleNo;

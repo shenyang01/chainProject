@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -26,6 +25,7 @@ import com.sy.chainproject.fragment.CoordinateFragment;
 import com.sy.chainproject.fragment.HomeFragment;
 import com.sy.chainproject.fragment.MeFragment;
 import com.sy.chainproject.fragment.ProductFragment;
+import com.sy.chainproject.utils.LogUtils;
 import com.sy.chainproject.utils.SharedPreferencesUtils;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -167,7 +167,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
         //showToast("未允许权限，请前往设置打开");
-        Log.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
+        LogUtils.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
     }
 
     /**

@@ -12,7 +12,8 @@ public class ReceivingNoteData {
    private String  d2;//结束日期
    private String  storeNum;//总部发货单号，为搜索条件，可以为空，空用0代替
     private String  styleNo;//款号，为搜索条件，可以为空，空用0代替
-    private String  storeid;//结束日期
+    private String  storeid;//门店id
+
 
     public String getStoreid() {
         return storeid;

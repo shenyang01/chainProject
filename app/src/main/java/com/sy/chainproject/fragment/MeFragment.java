@@ -23,6 +23,7 @@ import com.sy.chainproject.bean.UserBean;
 import com.sy.chainproject.camera.GetPhotoFromPhotoAlbum;
 import com.sy.chainproject.constant.Constants;
 import com.sy.chainproject.databinding.FragmentMeBinding;
+import com.sy.chainproject.utils.LogUtils;
 import com.sy.chainproject.utils.SharedPreferencesUtils;
 import com.sy.chainproject.view.CameraPopupWindow;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -129,7 +130,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener,Eas
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         dismiss();
         String photoPath;
-        Log.e("tag", "requestCode  " + requestCode + "  resultCode  " + resultCode);
         if (requestCode == 1 && resultCode == RESULT_OK) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 photoPath = String.valueOf(cameraSavePath);
@@ -168,13 +168,13 @@ public class MeFragment extends BaseFragment implements View.OnClickListener,Eas
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
         showPopupWindow();
-        Log.e("tag", "权限请求成功  " + requestCode + perms.toString());
+        LogUtils.e("tag", "权限请求成功  " + requestCode + perms.toString());
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
         Toast.makeText(getActivity(),"未允许权限，请前往设置打开",Toast.LENGTH_SHORT).show();
-        Log.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
+        LogUtils.e("tag", "onPermissionsDenied  " + requestCode + perms.toString());
     }
 
     /**
